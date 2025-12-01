@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://pr7e6un5ncs"]
+
+[ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://player.tscn" id="1_0f027"]
+[ext_resource type="Script" uid="uid://5y2bcolw08ad" path="res://Scripts/main_scene.gd" id="1_2c62f"]
+[ext_resource type="PackedScene" uid="uid://ss13l705hx1g" path="res://map.tscn" id="2_gyfs4"]
+[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://slime_enemy.tscn" id="4_d5x1h"]
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_2c62f")
+
+[node name="Map" parent="." instance=ExtResource("2_gyfs4")]
+
+[node name="Player" parent="." instance=ExtResource("1_0f027")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="SlimeEnemy" parent="." instance=ExtResource("4_d5x1h")]
+position = Vector2(-67, 52)
+
+[node name="SlimeEnemy2" parent="." instance=ExtResource("4_d5x1h")]
+position = Vector2(91, 88)
