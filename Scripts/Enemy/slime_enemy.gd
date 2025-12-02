@@ -1,15 +1,15 @@
 extends CharacterBody2D
 
 @export var anim : AnimationPlayer
-@export var health = 10
+@export var MAX_HEALTH = 10
+var health
 
-enum {IDLE, HURT}
 var current_state
 var state_node
-var change_state
 
 func _ready() -> void:
-	current_state = IDLE
+	health = MAX_HEALTH
+	current_state = Global.enemy.IDLE
 	$Idle.Enter()
 	state_node = $Idle
 	
@@ -21,29 +21,40 @@ func _physics_process(delta: float) -> void:
 	if state_node:
 		state_node.Physics_Update(delta)
 		
-	#TODO change this so that it triggers only when state is changed
-	if change_state:
-		print("change state")
-		state_node.Exit()
-		current_state = change_state
-	
-		if current_state == IDLE:
-			$Idle.Enter()
-			state_node = $Idle
-		elif current_state == HURT:
-			$Hurt.Enter()
-			state_node = $Hurt
-		
 	move_and_slide()
 	
+func change_state(new_state):
+	if new_state == current_state:
+		return
+	else:
+		current_state = new_state
+	
+	state_node.Exit()
+
+	if current_state == Global.enemy.IDLE:
+		$Idle.Enter()
+		state_node = $Idle
+	elif current_state == Global.enemy.HURT:
+		$Hurt.Enter()
+		state_node = $Hurt
+	elif current_state == Global.enemy.DEATH:
+		$Death.Enter()
+		state_node = $Death
 
 func take_damage(dmg):
 	health = health - dmg
+	health = clamp(health, 0, MAX_HEALTH)
+	if health == 0:
+		change_state(Global.enemy.DEATH)
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	print(area)
-	#TODO I dont think this class name is working
-	if area.is_class("Bullet"):
-		change_state = HURT
-		take_damage(2)
+	if area.is_in_group("bullet"):
+		if area.has_method("get_dmg"):
+			if current_state == Global.enemy.HURT || current_state == Global.enemy.DEATH:
+				return
+			else:
+				change_state(Global.enemy.HURT)
+				take_damage(area.get_dmg())
+				
+		assert(area.has_method("get_dmg"), "Bullet needs a get_dmg() method")
 		

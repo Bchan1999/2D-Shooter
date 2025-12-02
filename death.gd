@@ -1,17 +1,13 @@
 extends State
-class_name EnemyHurt
+class_name EnemyDeath
 
 @export var anim : AnimationPlayer
 @export var enemy: CharacterBody2D
 @export var move_speed := 20.0
 
 func Enter():
-	anim.play("hurt")
+	anim.play("death")
 	
 func Update(delta: float) -> void:
 	if !anim.is_playing():
-		enemy.change_state(Global.enemy.IDLE)
-	
-	
-
-	
+		get_parent().queue_free()
