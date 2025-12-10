@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://ho0hemylrta3"]
+[gd_scene load_steps=36 format=3 uid="uid://ho0hemylrta3"]
 
 [ext_resource type="Script" uid="uid://b2w3kn3vefjh8" path="res://Scripts/Enemy/slime_enemy.gd" id="1_ljpcw"]
 [ext_resource type="Texture2D" uid="uid://deahqu5yvqmbh" path="res://Assets/mystic_woods_free_2.2/sprites/characters/slime.png" id="1_ukp0r"]
 [ext_resource type="Script" uid="uid://dl86q50syw2wa" path="res://Scripts/Util/state_machine.gd" id="3_jjkrn"]
 [ext_resource type="Script" uid="uid://bojc8jx5m1ddt" path="res://Scripts/Enemy/idle.gd" id="4_c6ibh"]
 [ext_resource type="Script" uid="uid://cbwly8xgbkovs" path="res://death.gd" id="4_yysmt"]
+[ext_resource type="Script" uid="uid://chn13by6ptuc8" path="res://chase.gd" id="5_8d3w5"]
 [ext_resource type="Script" uid="uid://b0ti777myvl0f" path="res://hurt.gd" id="5_c6ibh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljpcw"]
@@ -164,7 +165,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ukp0r"]
-radius = 7.0
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_jjkrn"]
 length = 0.001
@@ -191,6 +192,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yysmt"]
+resource_name = "death"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"die"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_c6ibh"]
@@ -250,9 +279,10 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_yysmt"]
-resource_name = "death"
-length = 0.6
+[sub_resource type="Animation" id="Animation_8d3w5"]
+resource_name = "attack"
+length = 0.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -263,7 +293,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"die"]
+"values": [&"attack"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -272,15 +302,16 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.16666666, 0.26666665, 0.36666667, 0.46666667, 0.56666666, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4]
+"values": [0, 1, 2, 3, 4, 5, 6]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c6ibh"]
 _data = {
 &"RESET": SubResource("Animation_jjkrn"),
+&"attack": SubResource("Animation_8d3w5"),
 &"death": SubResource("Animation_yysmt"),
 &"hurt": SubResource("Animation_c6ibh"),
 &"idle": SubResource("Animation_wns1r")
@@ -289,7 +320,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_yysmt"]
 radius = 9.0
 
-[node name="SlimeEnemy" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
+[node name="SlimeEnemy" type="CharacterBody2D" node_paths=PackedStringArray("anim") groups=["enemy"]]
 script = ExtResource("1_ljpcw")
 anim = NodePath("AnimationPlayer")
 
@@ -309,13 +340,17 @@ script = ExtResource("4_yysmt")
 anim = NodePath("../AnimationPlayer")
 enemy = NodePath("..")
 
+[node name="Chase" type="Node" parent="." node_paths=PackedStringArray("anim", "enemy")]
+script = ExtResource("5_8d3w5")
+anim = NodePath("../AnimationPlayer")
+enemy = NodePath("..")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1aeoh")
 animation = &"idle"
 autoplay = "attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_ukp0r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -327,6 +362,7 @@ libraries = {
 script = ExtResource("3_jjkrn")
 
 [node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -3)

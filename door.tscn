@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqquf3tq1b70s"]
+
+[ext_resource type="Script" uid="uid://dlr4y78y3dh1q" path="res://door.gd" id="1_v6xrn"]
+[ext_resource type="Texture2D" uid="uid://dnxogvvyi1inp" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/walls/wooden_door_b.png" id="2_0phs7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50cdl"]
+atlas = ExtResource("2_0phs7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5njw"]
+atlas = ExtResource("2_0phs7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4xadh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50cdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5njw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hwww"]
+radius = 19.0
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_v6xrn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4xadh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6hwww")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

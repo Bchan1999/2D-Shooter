@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://htiic3ienanb"]
+[gd_scene load_steps=57 format=3 uid="uid://htiic3ienanb"]
 
 [ext_resource type="Script" uid="uid://ctc1ryb4dp22r" path="res://Scripts/Player/player.gd" id="1_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://cc088hdtd3fv0" path="res://bullet.tscn" id="2_b26j0"]
@@ -736,12 +736,22 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "anim_gun", "aim")]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u1c27"]
+height = 24.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "anim_gun", "aim") groups=["player"]]
 script = ExtResource("1_1jxqw")
 anim_player = NodePath("AnimationPlayer")
 anim_gun = NodePath("Gun")
 aim = NodePath("Aim")
 bullet_scene = ExtResource("2_b26j0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -213.0
+offset_top = 90.0
+offset_right = -110.0
+offset_bottom = 113.0
+text = "Health: 10/10"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b88wv")
@@ -778,3 +788,12 @@ sprite_frames = SubResource("SpriteFrames_nvl01")
 animation = &"side"
 flip_h = true
 script = ExtResource("13_urp6f")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_u1c27")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

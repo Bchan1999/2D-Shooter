@@ -9,8 +9,9 @@ func Enter():
 	anim.play("hurt")
 	
 func Update(delta: float) -> void:
+	#TODO go to previous state that was playing
 	if !anim.is_playing():
-		enemy.change_state(Global.enemy.IDLE)
+		enemy.change_state(Global.enemy.CHASE)
 	
 	
 
