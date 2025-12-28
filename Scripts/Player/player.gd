@@ -29,8 +29,6 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
-	
-	
 	var mouse_pos = get_local_mouse_position()
 	var rotate = atan2(mouse_pos.y, mouse_pos.x)
 	aim.global_rotation = lerp_angle(aim.global_rotation, rotate, 0.2)
@@ -61,7 +59,7 @@ func take_damage(dmg):
 	health = health - dmg
 	health = clamp(health, 0, MAX_HEALTH)
 	
-	#$AnimatedSprite2D.modulate = Color(1, 0, 0)
+	$AnimatedSprite2D.modulate = Color(1, 0, 0)
 	if health == 0:
 		death()
 	

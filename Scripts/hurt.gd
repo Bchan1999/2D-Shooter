@@ -11,7 +11,7 @@ func Enter():
 func Update(delta: float) -> void:
 	#TODO go to previous state that was playing
 	if !anim.is_playing():
-		enemy.change_state(Global.enemy.CHASE)
+		enemy.previous_state_change()
 	
 	
 
