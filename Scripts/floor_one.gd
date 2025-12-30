@@ -16,14 +16,14 @@ func _ready():
 	print("ready floor one ")
 	enemy_spawner.spawn_enemies(round_1_enemies)
 	current_enemies = round_1_enemies
-	Global.enemy_kill.connect(enemy_killed)w
+	Global.enemy_kill.connect(enemy_killed)
 
 func _process(delta: float) -> void:
 	if enemies_dead == current_enemies:
 		enemies_dead = 0
 		if final_round == true:
 			print("end round")
-			#teleport.teleport_to_hub()
+			teleport.teleport_to_hub()
 		else:
 			next_round()
 			

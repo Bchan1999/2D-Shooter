@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://uf8x4guwbq85"]
+[gd_scene load_steps=15 format=3 uid="uid://uf8x4guwbq85"]
 
-[ext_resource type="Texture2D" uid="uid://dpdbcy7cvwk0y" path="res://Assets/Pixels/Farm Man.png" id="1_55yd7"]
+[ext_resource type="Texture2D" uid="uid://dpdbcy7cvwk0y" path="res://Assets/MyCustomArt/Farm Man.png" id="1_55yd7"]
+[ext_resource type="Script" uid="uid://cu24b2xieoa8r" path="res://Scripts/farm_man.gd" id="1_nup8o"]
+[ext_resource type="Texture2D" uid="uid://bo4wb36fdjkte" path="res://Assets/MyCustomArt/E_popup.png" id="2_yba25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b64f2"]
 atlas = ExtResource("1_55yd7")
@@ -21,6 +23,28 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nup8o"]
+atlas = ExtResource("2_yba25")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c61wx"]
+atlas = ExtResource("2_yba25")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ux84q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nup8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c61wx")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -90,12 +114,23 @@ _data = {
 radius = 8.0
 height = 24.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_yba25"]
+radius = 23.0
+
 [node name="farm_man" type="StaticBody2D"]
+script = ExtResource("1_nup8o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wddse")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="E_popup" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_ux84q")
+autoplay = "default"
+frame_progress = 0.32176176
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -105,3 +140,12 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -2)
 shape = SubResource("CapsuleShape2D_58lpa")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_yba25")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

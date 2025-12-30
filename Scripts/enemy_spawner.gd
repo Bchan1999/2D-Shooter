@@ -8,18 +8,11 @@ func _ready():
 	#var slime = slime_scene.instantiate()
 	#slime.position = spawn.global_position
 	#get_tree().current_scene.add_child(slime)
-	
-func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("test"):
-		print("test slime")
-		var slime = slime_scene.instantiate()
-		slime.position = spawn.global_position
-		get_tree().current_scene.add_child(slime)
 		
 func spawn_enemy():
 	print("test slime")
 	var slime = slime_scene.instantiate()
-	get_tree().current_scene.add_child(slime)
+	get_parent().add_child(slime)
 	return slime
 		
 func spawn_enemies(amount):

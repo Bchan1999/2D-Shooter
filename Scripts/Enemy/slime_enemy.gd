@@ -12,6 +12,7 @@ var state_node
 var history = []
 
 func _ready() -> void:
+	print("enemy scene" , get_tree().current_scene)
 	health = MAX_HEALTH
 	history = []
 	history.append(Global.enemy.SPAWN)
@@ -73,7 +74,7 @@ func get_dmg():
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullet"):
 		if area.has_method("get_dmg"):
-			if current_state == Global.enemy.DEATH:
+			if current_state == Global.enemy.DEATH || current_state == Global.enemy.SPAWN:
 				return
 			else:
 				change_state(Global.enemy.HURT)

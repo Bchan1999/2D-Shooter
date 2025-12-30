@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqquf3tq1b70s"]
 
 [ext_resource type="Script" uid="uid://dlr4y78y3dh1q" path="res://Scripts/door.gd" id="1_v6xrn"]
-[ext_resource type="Texture2D" uid="uid://dnxogvvyi1inp" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/walls/wooden_door_b.png" id="2_0phs7"]
+[ext_resource type="Texture2D" uid="uid://dnxogvvyi1inp" path="res://Assets/MyCustomArt/tilesets/walls/wooden_door_b.png" id="2_0phs7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v6xrn"]
 atlas = ExtResource("2_0phs7")

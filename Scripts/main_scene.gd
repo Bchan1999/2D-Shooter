@@ -1,4 +1,5 @@
 extends Node2D
+@onready var player: CharacterBody2D = $Player
 
 # Called every frame. 'delta' is the elapsed atime since the previous frame.
 func _input(event):

@@ -10,11 +10,13 @@ extends CharacterBody2D
 
 @export var MAX_HEALTH = 10
 var health
+var npc_interact = false
 
 var change_gun = false
 
 func _ready() -> void:
 	health = MAX_HEALTH
+	Global.npc_interact.connect(set_npc_interact)
 
 func _physics_process(delta: float) -> void:
 	label.text = str("Health: " , health)
@@ -53,7 +55,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
 		
+	
+		
 	move_and_slide()
+	
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("test"):
+		if npc_interact == true:
+			print("YOU CAN TALK TO ME!!")
 	
 func take_damage(dmg):
 	health = health - dmg
@@ -79,3 +88,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.has_method("get_dmg"):
 			print("took damagea")
 			take_damage(body.get_dmg())
+			
+func set_npc_interact(toggle):
+	npc_interact = toggle
+	

@@ -1,14 +1,14 @@
 [gd_scene load_steps=24 format=4 uid="uid://ss13l705hx1g"]
 
-[ext_resource type="Texture2D" uid="uid://bknebob0axu6p" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/decor_16x16.png" id="1_iw27f"]
-[ext_resource type="Texture2D" uid="uid://xtf3il3jrgaj" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/decor_8x8.png" id="2_71pa8"]
-[ext_resource type="Texture2D" uid="uid://dvfps54n35fmu" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/grass.png" id="3_05x41"]
-[ext_resource type="Texture2D" uid="uid://dyawivbos3ijo" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/water3.png" id="4_gqbix"]
-[ext_resource type="Texture2D" uid="uid://beww35be5pk2b" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/fences.png" id="5_oysan"]
-[ext_resource type="Texture2D" uid="uid://6c2qi3jp7wuj" path="res://Assets/mystic_woods_free_2.2/sprites/objects/objects.png" id="6_sb2pt"]
-[ext_resource type="Texture2D" uid="uid://bacah6clper1p" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/floors/wooden.png" id="7_gqbix"]
-[ext_resource type="Texture2D" uid="uid://dhje4c7aem4wy" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/floors/flooring.png" id="8_oysan"]
-[ext_resource type="Texture2D" uid="uid://bq2hydyoa47el" path="res://Assets/mystic_woods_free_2.2/sprites/tilesets/walls.png" id="9_sb2pt"]
+[ext_resource type="Texture2D" uid="uid://bknebob0axu6p" path="res://Assets/MyCustomArt/tilesets/decor_16x16.png" id="1_iw27f"]
+[ext_resource type="Texture2D" uid="uid://xtf3il3jrgaj" path="res://Assets/MyCustomArt/tilesets/decor_8x8.png" id="2_71pa8"]
+[ext_resource type="Texture2D" uid="uid://dvfps54n35fmu" path="res://Assets/MyCustomArt/tilesets/grass.png" id="3_05x41"]
+[ext_resource type="Texture2D" uid="uid://dyawivbos3ijo" path="res://Assets/MyCustomArt/tilesets/water3.png" id="4_gqbix"]
+[ext_resource type="Texture2D" uid="uid://beww35be5pk2b" path="res://Assets/MyCustomArt/tilesets/fences.png" id="5_oysan"]
+[ext_resource type="Texture2D" uid="uid://6c2qi3jp7wuj" path="res://Assets/MyCustomArt/objects.png" id="6_sb2pt"]
+[ext_resource type="Texture2D" uid="uid://bacah6clper1p" path="res://Assets/MyCustomArt/tilesets/floors/wooden.png" id="7_gqbix"]
+[ext_resource type="Texture2D" uid="uid://dhje4c7aem4wy" path="res://Assets/MyCustomArt/tilesets/floors/flooring.png" id="8_oysan"]
+[ext_resource type="Texture2D" uid="uid://bq2hydyoa47el" path="res://Assets/MyCustomArt/tilesets/walls.png" id="9_sb2pt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0t07s"]
 texture = ExtResource("1_iw27f")
