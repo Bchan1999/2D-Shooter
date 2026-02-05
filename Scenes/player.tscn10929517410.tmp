@@ -742,12 +742,18 @@ animations = [{
 height = 24.0
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player", "anim_gun", "aim") groups=["player"]]
-collision_layer = 2
 script = ExtResource("1_1jxqw")
 anim_player = NodePath("AnimationPlayer")
 anim_gun = NodePath("Gun")
 aim = NodePath("Aim")
 bullet_scene = ExtResource("2_b26j0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -213.0
+offset_top = 90.0
+offset_right = -110.0
+offset_bottom = 113.0
+text = "Health: 10/10"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b88wv")
@@ -755,6 +761,7 @@ animation = &"south2"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_op7ga")
 
@@ -764,6 +771,7 @@ libraries = {
 }
 
 [node name="Aim" type="Marker2D" parent="."]
+visible = false
 
 [node name="bullet_hole" type="Marker2D" parent="Aim"]
 position = Vector2(17, 0)
@@ -775,6 +783,7 @@ libraries = {
 }
 
 [node name="WeaponController" type="Node2D" parent="."]
+visible = false
 script = ExtResource("11_bwjto")
 
 [node name="Pistol" type="AnimatedSprite2D" parent="WeaponController"]
@@ -786,23 +795,11 @@ flip_h = true
 script = ExtResource("13_urp6f")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_u1c27")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = -43.0
-offset_right = 118.0
-offset_bottom = -20.0
-grow_vertical = 0
-text = "Health: 10/10"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

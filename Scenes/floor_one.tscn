@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dhje4c7aem4wy" path="res://Assets/MyCustomArt/tilesets/floors/flooring.png" id="9_qgse1"]
 [ext_resource type="Texture2D" uid="uid://bq2hydyoa47el" path="res://Assets/MyCustomArt/tilesets/walls.png" id="10_0nla8"]
 [ext_resource type="Script" uid="uid://dqfcn670n0y7a" path="res://Scripts/enemy_spawner.gd" id="11_b6ejx"]
-[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Scenes/slime_enemy.tscn" id="12_ccq73"]
+[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Scripts/Enemy/SlimeEnemy/slime_enemy.tscn" id="12_ccq73"]
 [ext_resource type="PackedScene" uid="uid://jk6ik058ipb1" path="res://Scenes/teleport.tscn" id="13_2p1f2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0t07s"]
@@ -680,11 +680,12 @@ position = Vector2(137, 110)
 position = Vector2(8, 191)
 
 [node name="teleport_a" type="Marker2D" parent="."]
-position = Vector2(15, 98)
+position = Vector2(0, 256)
 
 [node name="Teleport" parent="." instance=ExtResource("13_2p1f2")]
 
 [node name="set_player" type="Area2D" parent="Teleport"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/set_player"]
 position = Vector2(8, 96.5)

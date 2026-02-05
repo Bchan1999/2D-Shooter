@@ -305,6 +305,7 @@ position = Vector2(-35, -54)
 position = Vector2(8, -114)
 
 [node name="Area2D" type="Area2D" parent="Teleport"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/Area2D"]
 shape = SubResource("CircleShape2D_trs84")

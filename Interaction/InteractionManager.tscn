@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0q6der7qctim"]
+
+[ext_resource type="Script" uid="uid://ca8kasg5o6s8n" path="res://Interaction/interaction_manager.gd" id="1_j22pa"]
+[ext_resource type="Texture2D" uid="uid://bo4wb36fdjkte" path="res://Assets/MyCustomArt/E_popup.png" id="1_p4lj5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nup8o"]
+atlas = ExtResource("1_p4lj5")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c61wx"]
+atlas = ExtResource("1_p4lj5")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j22pa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nup8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c61wx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_j22pa")
+
+[node name="E_popup" type="AnimatedSprite2D" parent="."]
+z_index = 20
+sprite_frames = SubResource("SpriteFrames_j22pa")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
