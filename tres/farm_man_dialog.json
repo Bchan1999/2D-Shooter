@@ -1,0 +1,14 @@
+{
+  "states": {
+	"intro": [
+	  {"speaker": "NPC1", "text": "Hello, traveler! Welcome to the village."},
+	  {"speaker": "NPC1", "text": "Have you seen the lost artifact?"}
+	],
+	"quest_in_progress": [
+	  {"speaker": "NPC1", "text": "Any luck finding it?"}
+	],
+	"quest_complete": [
+	  {"speaker": "NPC1", "text": "Thanks for your help!"}
+	]
+  }
+}

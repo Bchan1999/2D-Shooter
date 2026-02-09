@@ -22,7 +22,6 @@ func _ready() -> void:
 	#Global.npc_interact.connect(set_npc_interact)
 	
 func stop_movement(is_frozen: bool):
-	print(is_frozen)
 	move = is_frozen
 
 func _physics_process(delta: float) -> void:
