@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://kaxdk1qfttu6"
+path="res://.godot/imported/farmman_hub_1.dialogue-60b1d0a84bf9733746924d3b41aa0f53.tres"
+
+[deps]
+
+source_file="res://Dialogue/farmman_hub_1.dialogue"
+dest_files=["res://.godot/imported/farmman_hub_1.dialogue-60b1d0a84bf9733746924d3b41aa0f53.tres"]
+
+[params]
+
+defaults=true

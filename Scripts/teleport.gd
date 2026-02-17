@@ -15,7 +15,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		teleport_to_target(body)
 		
 func teleport_to_target(body):	
-	var target_level = SceneManager.add_scene(Global.scene.FL_ONE)
+	var target_level = SceneManager.add_scene(Global.scene.F1)
 	SceneManager.remove_scene(get_parent().get_path())
 	body.position = target_level.get_node(target_spawn).global_position
 	

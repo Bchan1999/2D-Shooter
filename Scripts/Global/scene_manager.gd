@@ -6,7 +6,7 @@ var dict : Dictionary
 @onready var player: CharacterBody2D = $Player
 
 func _ready() -> void:
-	dict = {Global.scene.HUB : hub, Global.scene.FL_ONE : floor_one}
+	dict = {Global.scene.HUB : hub, Global.scene.F1 : floor_one}
 
 func add_scene(scene_name : int):
 	assert(dict.has(scene_name), "This scene does not exist in the Scene Manager")

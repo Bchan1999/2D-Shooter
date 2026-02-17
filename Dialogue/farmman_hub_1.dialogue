@@ -1,0 +1,12 @@
+~ interact_1
+Farm Man: [[Hi|Hello|Howdy]], there adventurer! Good luck out there!
+=> END
+
+~ interact_2
+Farm Man: Be sure to stock up on supplies before you go fighting!
+
+~ interact_3
+Farm Man: Nice weather today...
+
+~ interact_4
+Farm Man: ...

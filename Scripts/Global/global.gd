@@ -2,7 +2,7 @@ extends Node
 
 enum enemy {IDLE, HURT, DEATH, CHASE, SPAWN}
 
-enum scene {HUB, FL_ONE}
+enum scene {HUB, F1 , HUB_F1_DONE}
 
 enum npc {FARM}
 
@@ -13,6 +13,8 @@ signal npc_interact(toggle)
 signal dialogue(dia)
 
 signal freeze_game(is_frozen: bool)
+
+@onready var scene_state = scene.HUB
 
 var is_game_frozen: bool = false :
 	set(value):
