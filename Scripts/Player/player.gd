@@ -6,10 +6,15 @@ extends CharacterBody2D
 @export var anim_gun : AnimationPlayer
 @export var aim : Marker2D
 @export var bullet_scene : PackedScene
+
 @onready var label: Label = $CanvasLayer/Label
+@onready var diamond_amt_label: Label = $CanvasLayer/Diamond_Amt
 
 @export var MAX_HEALTH = 10
+@export var START_DIAMOND = 0
+
 var health
+var diamond_amt
 var npc_interact = false
 
 var change_gun = false
@@ -18,6 +23,7 @@ var move = false
 
 func _ready() -> void:
 	health = MAX_HEALTH
+	diamond_amt = START_DIAMOND
 	Global.freeze_game.connect(stop_movement)
 	#Global.npc_interact.connect(set_npc_interact)
 	
@@ -26,6 +32,7 @@ func stop_movement(is_frozen: bool):
 
 func _physics_process(delta: float) -> void:
 	label.text = str("Health: " , health)
+	diamond_amt_label.text = str(diamond_amt, " :")
 	 
 	var dir = Input.get_vector("left", "right", "up" , "down")
 	

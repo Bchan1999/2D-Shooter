@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ynd7tcl06x8i" path="res://Scripts/floor_one.gd" id="1_rtho0"]
 [ext_resource type="PackedScene" uid="uid://bco87el1pffgh" path="res://Scenes/base_combat_map.tscn" id="2_civmc"]
 [ext_resource type="Script" uid="uid://dqfcn670n0y7a" path="res://Scripts/enemy_spawner.gd" id="11_b6ejx"]
-[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Scripts/Enemy/SlimeEnemy/slime_enemy.tscn" id="12_ccq73"]
+[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Scenes/slime_enemy.tscn" id="12_ccq73"]
 [ext_resource type="PackedScene" uid="uid://jk6ik058ipb1" path="res://Scenes/teleport.tscn" id="13_2p1f2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2p1f2"]

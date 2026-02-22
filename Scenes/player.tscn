@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://htiic3ienanb"]
+[gd_scene load_steps=58 format=3 uid="uid://htiic3ienanb"]
 
 [ext_resource type="Script" uid="uid://ctc1ryb4dp22r" path="res://Scripts/Player/player.gd" id="1_1jxqw"]
 [ext_resource type="PackedScene" uid="uid://cc088hdtd3fv0" path="res://Scenes/bullet.tscn" id="2_b26j0"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://tj2s23300at7" path="res://Scripts/Player/pistol.gd" id="13_urp6f"]
 [ext_resource type="Texture2D" uid="uid://yip1unf0uqbw" path="res://Assets/topdown_shooter/topdown_shooter/guns/pistol/p_diagup.png" id="14_op7ga"]
 [ext_resource type="Texture2D" uid="uid://b623d0gnwscbr" path="res://Assets/topdown_shooter/topdown_shooter/guns/pistol/p_up.png" id="16_op7ga"]
+[ext_resource type="Texture2D" uid="uid://bvwqpc5wieufw" path="res://Assets/MyCustomArt/Diamond/Diamond_Thumb.png" id="17_qqcod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
 atlas = ExtResource("2_dw050")
@@ -798,11 +799,21 @@ shape = SubResource("CapsuleShape2D_u1c27")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = -43.0
-offset_right = 118.0
-offset_bottom = -20.0
+offset_left = 9.0
+offset_top = -261.0
+offset_right = 112.0
+offset_bottom = -238.0
 grow_vertical = 0
 text = "Health: 10/10"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Diamond_Amt" type="Label" parent="CanvasLayer"]
+offset_left = 408.0
+offset_top = 7.0
+offset_right = 455.0
+offset_bottom = 30.0
+text = "0 :"
+horizontal_alignment = 2
+
+[node name="DiamondThumb" type="Sprite2D" parent="CanvasLayer/Diamond_Amt"]
+position = Vector2(58, 13)
+texture = ExtResource("17_qqcod")

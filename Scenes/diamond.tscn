@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn3mdd5tcuswt"]
+
+[ext_resource type="Script" uid="uid://e8hvpx5uj5hi" path="res://Scenes/diamond.gd" id="1_04a0d"]
+[ext_resource type="Texture2D" uid="uid://mqp1nkwc78jr" path="res://Assets/MyCustomArt/Diamond/Diamond_Shadow.png" id="1_tjcex"]
+[ext_resource type="Texture2D" uid="uid://cxyeonnjp3dmu" path="res://Assets/MyCustomArt/Diamond/Diamond.png" id="2_04a0d"]
+
+[sub_resource type="Animation" id="Animation_xpe6a"]
+resource_name = "Floating"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Diamond:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DiamondShadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.09411765)]
+}
+
+[sub_resource type="Animation" id="Animation_vxitv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Diamond:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DiamondShadow:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qt87u"]
+_data = {
+&"Floating": SubResource("Animation_xpe6a"),
+&"RESET": SubResource("Animation_vxitv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_drdxg"]
+
+[node name="Diamond" type="Node2D"]
+script = ExtResource("1_04a0d")
+
+[node name="DiamondShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 4)
+texture = ExtResource("1_tjcex")
+
+[node name="Diamond" type="Sprite2D" parent="."]
+texture = ExtResource("2_04a0d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qt87u")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_drdxg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

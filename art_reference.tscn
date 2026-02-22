@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxothyvty24u8"]
+
+[ext_resource type="Texture2D" uid="uid://dpdbcy7cvwk0y" path="res://Assets/MyCustomArt/Farm Man.png" id="1_aul2o"]
+[ext_resource type="Texture2D" uid="uid://6o6qvxlqt5u2" path="res://Assets/MyCustomArt/ReferenceBackground.png" id="1_khp7y"]
+[ext_resource type="Texture2D" uid="uid://cgj6a7hrv4bvn" path="res://Assets/MyCustomArt/E_popup - Copy.png" id="3_c18eu"]
+[ext_resource type="Texture2D" uid="uid://mqp1nkwc78jr" path="res://Assets/MyCustomArt/Diamond/Diamond_Shadow.png" id="4_x0wqw"]
+[ext_resource type="Texture2D" uid="uid://cxyeonnjp3dmu" path="res://Assets/MyCustomArt/Diamond/Diamond.png" id="5_k27d2"]
+[ext_resource type="Texture2D" uid="uid://bvwqpc5wieufw" path="res://Assets/MyCustomArt/Diamond/Diamond_Thumb.png" id="6_10etj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g66cg"]
+atlas = ExtResource("1_aul2o")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khp7y"]
+atlas = ExtResource("1_aul2o")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c18eu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g66cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khp7y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sandbox" type="Node2D"]
+
+[node name="ReferenceBackground" type="Sprite2D" parent="."]
+position = Vector2(241, 135)
+texture = ExtResource("1_khp7y")
+
+[node name="FarmMan" type="AnimatedSprite2D" parent="."]
+position = Vector2(22, 247)
+sprite_frames = SubResource("SpriteFrames_c18eu")
+
+[node name="EPopupCopy" type="Sprite2D" parent="."]
+position = Vector2(23, 224)
+texture = ExtResource("3_c18eu")
+
+[node name="DiamondShadow" type="Sprite2D" parent="."]
+position = Vector2(51, 252)
+texture = ExtResource("4_x0wqw")
+
+[node name="Diamond" type="Sprite2D" parent="."]
+position = Vector2(51, 241)
+texture = ExtResource("5_k27d2")
+
+[node name="DiamondThumb" type="Sprite2D" parent="."]
+position = Vector2(22, 191)
+texture = ExtResource("6_10etj")
