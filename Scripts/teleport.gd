@@ -2,6 +2,7 @@ extends Node2D
 class_name Teleport
 
 @export var target_spawn : String
+@export var target_scene : PackedScene
 var player
 
 func _on_set_player_body_entered(body: Node2D) -> void:
@@ -15,11 +16,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		teleport_to_target(body)
 		
 func teleport_to_target(body):	
-	var target_level = SceneManager.add_scene(Global.scene.F1)
+	var target_level = SceneManager.add_scene(target_scene)
 	SceneManager.remove_scene(get_parent().get_path())
 	body.position = target_level.get_node(target_spawn).global_position
 	
-func teleport_to_hub():
-	var target_level = SceneManager.add_scene(Global.scene.HUB)
-	SceneManager.remove_scene(get_parent().get_path())
-	player.position = target_level.get_node(target_spawn).global_position
+#func teleport_to_hub():
+	#var target_level = SceneManager.add_scene(Global.scene.HUB)
+	#SceneManager.remove_scene(get_parent().get_path())
+	#player.position = target_level.get_node(target_spawn).global_position

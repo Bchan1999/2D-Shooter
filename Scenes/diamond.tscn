@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn3mdd5tcuswt"]
+[gd_scene load_steps=9 format=3 uid="uid://dn3mdd5tcuswt"]
 
 [ext_resource type="Script" uid="uid://e8hvpx5uj5hi" path="res://Scenes/diamond.gd" id="1_04a0d"]
 [ext_resource type="Texture2D" uid="uid://mqp1nkwc78jr" path="res://Assets/MyCustomArt/Diamond/Diamond_Shadow.png" id="1_tjcex"]
 [ext_resource type="Texture2D" uid="uid://cxyeonnjp3dmu" path="res://Assets/MyCustomArt/Diamond/Diamond.png" id="2_04a0d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_04a0d"]
+radius = 1.0
 
 [sub_resource type="Animation" id="Animation_xpe6a"]
 resource_name = "Floating"
@@ -66,8 +69,9 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_drdxg"]
+radius = 8.0
 
-[node name="Diamond" type="Node2D"]
+[node name="Diamond" type="StaticBody2D"]
 script = ExtResource("1_04a0d")
 
 [node name="DiamondShadow" type="Sprite2D" parent="."]
@@ -77,15 +81,19 @@ texture = ExtResource("1_tjcex")
 [node name="Diamond" type="Sprite2D" parent="."]
 texture = ExtResource("2_04a0d")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_04a0d")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qt87u")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["diamond"]]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_drdxg")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

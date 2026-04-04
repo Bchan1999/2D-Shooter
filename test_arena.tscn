@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://bsh8a52de1j5"]
+
+[ext_resource type="Script" uid="uid://dclkmrutlsdng" path="res://test_arena.gd" id="1_s6hhk"]
+[ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/tile_test.png" id="2_ygfu8"]
+[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Scenes/slime_enemy.tscn" id="3_s6hhk"]
+[ext_resource type="PackedScene" uid="uid://ca1cw7cdyyho6" path="res://enemy_spawner.tscn" id="4_ygfu8"]
+[ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Scenes/player.tscn" id="5_ygfu8"]
+[ext_resource type="PackedScene" uid="uid://jt0mmrhpr0ly" path="res://slime_tile.tscn" id="6_pt0wf"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xw7hd"]
+scenes/1/scene = ExtResource("6_pt0wf")
+
+[sub_resource type="TileSet" id="TileSet_pt0wf"]
+tile_size = Vector2i(139, 139)
+sources/0 = SubResource("TileSetScenesCollectionSource_xw7hd")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygfu8"]
+texture = ExtResource("2_ygfu8")
+texture_region_size = Vector2i(139, 139)
+0:0/0 = 0
+2:0/0 = 0
+8:1/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ygfu8"]
+tile_size = Vector2i(139, 139)
+sources/6 = SubResource("TileSetAtlasSource_ygfu8")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [6, Vector2i(0, 0)], [3, Vector2i(1, 0)], [6, Vector2i(2, 0)], [4, Vector2i(2, 0)], [6, Vector2i(5, 0)], [5, Vector2i(2, 1)], [6, Vector2i(8, 1)]]
+
+[node name="TestArena" type="Node2D"]
+script = ExtResource("1_s6hhk")
+slime_scene = ExtResource("3_s6hhk")
+
+[node name="GameTiles" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
+tile_set = SubResource("TileSet_pt0wf")
+
+[node name="BaseFloor" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_ygfu8")
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_ygfu8")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawner"]
+position = Vector2(113, 66)
+
+[node name="teleport_a" type="Marker2D" parent="."]
+position = Vector2(67, 101)
+
+[node name="Player" parent="." instance=ExtResource("5_ygfu8")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="WorldWalls" type="StaticBody2D" parent="."]

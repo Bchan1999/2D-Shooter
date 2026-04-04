@@ -77,3 +77,23 @@ func shoot():
 	get_tree().current_scene.add_child(bullet)
 
 	
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+	##TODO best way to handle interaction of objects
+	#print(body)
+	#if body.is_in_group("diamond"):
+		#print("diamond")
+		#diamond_interact()
+	#print(body)
+	
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	##TODO best way to handle interaction of objects
+	print(area)
+	if area.is_in_group("diamond"):
+		print("diamond")
+		diamond_interact()
+	print(area)
+
+func diamond_interact():
+	diamond_amt+= 1
+	

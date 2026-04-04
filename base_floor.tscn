@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=4 uid="uid://dgp7g2sdy2gea"]
+
+[ext_resource type="Texture2D" uid="uid://bq2hydyoa47el" path="res://Assets/MyCustomArt/tilesets/walls.png" id="1_c3osh"]
+[ext_resource type="Script" uid="uid://cmmj0sfqoiu86" path="res://base_floor.gd" id="2_dbaxo"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ygfu8"]
+tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 262144, 0, 1, 327680, 0, 1, 393216, 0, 1, 458752, 0, 1, 1, 0, 1, 65537, 0, 1, 131073, 0, 1, 196609, 0, 1, 262145, 0, 1, 327681, 0, 1, 393217, 0, 1, 458753, 0, 1, 2, 0, 1, 65538, 0, 1, 131074, 0, 1, 196610, 0, 1, 262146, 0, 1, 327682, 0, 1, 393218, 0, 1, 458754, 0, 1, 3, 0, 1, 65539, 0, 1, 131075, 0, 1, 196611, 0, 1, 262147, 0, 1, 327683, 0, 1, 393219, 0, 1, 458755, 0, 1, 4, 0, 1, 65540, 0, 1, 131076, 0, 1, 196612, 0, 1, 262148, 0, 1, 327684, 0, 1, 393220, 0, 1, 458756, 0, 1, 5, 0, 1, 65541, 0, 1, 131077, 0, 1, 196613, 0, 1, 262149, 0, 1, 327685, 0, 1, 393221, 0, 1, 458757, 0, 1, 6, 0, 1, 65542, 0, 1, 131078, 0, 1, 196614, 0, 1, 262150, 0, 1, 327686, 0, 1, 393222, 0, 1, 458758, 0, 1, 7, 0, 1, 65543, 0, 1, 131079, 0, 1, 196615, 0, 1, 262151, 0, 1, 327687, 0, 1, 393223, 0, 1, 458759, 0, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5kp2"]
+texture = ExtResource("1_c3osh")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lep4s"]
+sources/0 = SubResource("TileSetAtlasSource_y5kp2")
+pattern_0 = SubResource("TileMapPattern_ygfu8")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s80d3"]
+size = Vector2(128, 128)
+
+[node name="BaseFloor" type="TileMapLayer"]
+tile_map_data = PackedByteArray("AAD9//7/AAAAAAEAAAD9////AAAAAAEAAAD9/wAAAAAAAAEAAAD9/wEAAAAAAAEAAAD9/wIAAAAAAAEAAAD9/wMAAAAAAAEAAAD9/wQAAAAAAAEAAAD9/wUAAAAAAAEAAAD+//7/AAAAAAEAAAD+////AAAAAAEAAAD+/wAAAAAAAAEAAAD+/wEAAAAAAAEAAAD+/wIAAAAAAAEAAAD+/wMAAAAAAAEAAAD+/wQAAAAAAAEAAAD+/wUAAAAAAAEAAAD///7/AAAAAAEAAAD/////AAAAAAEAAAD//wAAAAAAAAEAAAD//wEAAAAAAAEAAAD//wIAAAAAAAEAAAD//wMAAAAAAAEAAAD//wQAAAAAAAEAAAD//wUAAAAAAAEAAAAAAP7/AAAAAAEAAAAAAP//AAAAAAEAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAABAP7/AAAAAAEAAAABAP//AAAAAAEAAAABAAAAAAAAAAEAAAABAAEAAAAAAAEAAAABAAIAAAAAAAEAAAABAAMAAAAAAAEAAAABAAQAAAAAAAEAAAABAAUAAAAAAAEAAAACAP7/AAAAAAEAAAACAP//AAAAAAEAAAACAAAAAAAAAAEAAAACAAEAAAAAAAEAAAACAAIAAAAAAAEAAAACAAMAAAAAAAEAAAACAAQAAAAAAAEAAAACAAUAAAAAAAEAAAADAP7/AAAAAAEAAAADAP//AAAAAAEAAAADAAAAAAAAAAEAAAADAAEAAAAAAAEAAAADAAIAAAAAAAEAAAADAAMAAAAAAAEAAAADAAQAAAAAAAEAAAADAAUAAAAAAAEAAAAEAP7/AAAAAAEAAAAEAP//AAAAAAEAAAAEAAAAAAAAAAEAAAAEAAEAAAAAAAEAAAAEAAIAAAAAAAEAAAAEAAMAAAAAAAEAAAAEAAQAAAAAAAEAAAAEAAUAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_lep4s")
+script = ExtResource("2_dbaxo")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, 32)
+shape = SubResource("RectangleShape2D_s80d3")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

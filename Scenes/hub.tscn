@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://c0qh7xrnmo2r8"]
+[gd_scene load_steps=25 format=4 uid="uid://c0qh7xrnmo2r8"]
 
 [ext_resource type="Texture2D" uid="uid://bq2hydyoa47el" path="res://Assets/MyCustomArt/tilesets/walls.png" id="1_lw6cm"]
 [ext_resource type="Texture2D" uid="uid://bacah6clper1p" path="res://Assets/MyCustomArt/tilesets/floors/wooden.png" id="2_vkujn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqquf3tq1b70s" path="res://Scenes/door.tscn" id="7_kud3j"]
 [ext_resource type="PackedScene" uid="uid://uf8x4guwbq85" path="res://Scenes/farm_man.tscn" id="8_72fsv"]
 [ext_resource type="PackedScene" uid="uid://jk6ik058ipb1" path="res://Scenes/teleport.tscn" id="9_qi2g6"]
+[ext_resource type="PackedScene" uid="uid://bsh8a52de1j5" path="res://test_arena.tscn" id="10_vkujn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ace7m"]
 texture = ExtResource("1_lw6cm")
@@ -303,6 +304,7 @@ position = Vector2(-35, -54)
 
 [node name="Teleport" parent="." instance=ExtResource("9_qi2g6")]
 position = Vector2(8, -114)
+target_scene = ExtResource("10_vkujn")
 
 [node name="Area2D" type="Area2D" parent="Teleport"]
 collision_mask = 2

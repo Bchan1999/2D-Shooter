@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="2D Shooter"
-run/main_scene="uid://pr7e6un5ncs"
+run/main_scene="uid://bsh8a52de1j5"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
@@ -40,6 +40,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 bullet=""
 enemy=""
 player=""
+diamond=""
 
 [input]
 

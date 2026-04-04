@@ -8,10 +8,10 @@ var dict : Dictionary
 func _ready() -> void:
 	dict = {Global.scene.HUB : hub, Global.scene.F1 : floor_one}
 
-func add_scene(scene_name : int):
-	assert(dict.has(scene_name), "This scene does not exist in the Scene Manager")
-	var new_scene = dict.get(scene_name)
-	var scene_obj = new_scene.instantiate()
+func add_scene( scene_name : PackedScene):
+	#assert(dict.has(scene_name), "This scene does not exist in the Scene Manager")
+	#var new_scene = dict.get(scene_name)
+	var scene_obj = scene_name.instantiate()
 	get_tree().current_scene.add_child(scene_obj)
 	get_tree().current_scene.move_child(scene_obj, 0)
 	return scene_obj
