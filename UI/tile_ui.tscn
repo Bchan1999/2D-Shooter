@@ -20,7 +20,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("slime_card:frame")
+tracks/0/path = NodePath("slime_card_top:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -32,7 +32,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("slime_card:position")
+tracks/1/path = NodePath("slime_card_top:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -48,7 +48,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("slime_card:frame")
+tracks/0/path = NodePath("slime_card_top:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("slime_card:position")
+tracks/1/path = NodePath("slime_card_top:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -94,16 +94,17 @@ position = Vector2(1, -49)
 shape = SubResource("RectangleShape2D_f5w1d")
 
 [node name="green_tile_top" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(240, 135)
 texture = ExtResource("4_ip5th")
 
-[node name="slime_card" type="Sprite2D" parent="."]
+[node name="slime_card_top" type="Sprite2D" parent="."]
 position = Vector2(240, 135)
 texture = ExtResource("5_w7d1j")
 
-[node name="Area2D" type="Area2D" parent="slime_card"]
+[node name="Area2D" type="Area2D" parent="slime_card_top"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="slime_card/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slime_card_top/Area2D"]
 position = Vector2(4.5, 56)
 shape = SubResource("RectangleShape2D_2jjwt")
 
@@ -124,6 +125,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_y6ugx")
 }
 
-[connection signal="input_event" from="slime_card/Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="slime_card/Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="slime_card/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="input_event" from="slime_card_top/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="slime_card_top/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="slime_card_top/Area2D" to="." method="_on_area_2d_mouse_exited"]

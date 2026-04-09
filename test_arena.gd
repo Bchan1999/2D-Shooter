@@ -135,26 +135,3 @@ func get_tile_node_at(cell: Vector2i) -> Node:
 			#print("source_id: ", game_tiles.get_cell_source_id(first))
 			#print("atlas_coords: ", game_tiles.get_cell_atlas_coords(first))
 			#print("alternative: ", game_tiles.get_cell_alternative_tile(first))
-
-#func _ready():
-	#clickable = base_floor.get_used_cells()
-	#print(clickable)
-	#pattern = ghost_floor.tile_set.get_pattern(0)
-	#
-	#enemy_spawner.spawn_enemies(4)
-	
-#func _process(delta: float) -> void:
-	#var local_pos = base_floor.to_local(camera.get_global_mouse_position())
-	#mouse_pos = base_floor.local_to_map(local_pos)
-	#if clickable:
-		#for x in clickable:
-			#if (mouse_pos == x):
-				#can_interact = true
-			#else:
-				#can_interact = false
-					#
-#
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_released("interact") && can_interact == true:
-		#print("set pattern")
-		#ghost_floor.set_pattern(mouse_pos, pattern)

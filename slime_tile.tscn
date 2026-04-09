@@ -25,6 +25,7 @@ metadata/_edit_vertical_guides_ = [139.0]
 metadata/_edit_horizontal_guides_ = [139.0]
 
 [node name="BaseFloor" type="TileMapLayer" parent="."]
+z_index = -1
 position = Vector2(-69.5, -69.5)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 1, 0, 0, 0)
 tile_set = SubResource("TileSet_sxiwx")
