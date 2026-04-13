@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bsh8a52de1j5"]
+[gd_scene load_steps=10 format=3 uid="uid://bsh8a52de1j5"]
 
 [ext_resource type="Script" uid="uid://dclkmrutlsdng" path="res://test_arena.gd" id="1_s6hhk"]
 [ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/tile_test.png" id="2_ygfu8"]
-[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Scenes/slime_enemy.tscn" id="3_s6hhk"]
 [ext_resource type="PackedScene" uid="uid://ca1cw7cdyyho6" path="res://enemy_spawner.tscn" id="4_ygfu8"]
 [ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Scenes/player.tscn" id="5_ygfu8"]
 [ext_resource type="PackedScene" uid="uid://jt0mmrhpr0ly" path="res://slime_tile.tscn" id="6_pt0wf"]
@@ -29,7 +28,6 @@ tile_proxies/coords_level = [[0, Vector2i(0, 0)], [6, Vector2i(0, 0)], [3, Vecto
 
 [node name="TestArena" type="Node2D"]
 script = ExtResource("1_s6hhk")
-slime_scene = ExtResource("3_s6hhk")
 
 [node name="GameTiles" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
