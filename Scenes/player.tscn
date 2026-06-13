@@ -16,7 +16,7 @@
 [ext_resource type="Script" uid="uid://tj2s23300at7" path="res://Scripts/Player/pistol.gd" id="13_urp6f"]
 [ext_resource type="Texture2D" uid="uid://yip1unf0uqbw" path="res://Assets/topdown_shooter/topdown_shooter/guns/pistol/p_diagup.png" id="14_op7ga"]
 [ext_resource type="Texture2D" uid="uid://b623d0gnwscbr" path="res://Assets/topdown_shooter/topdown_shooter/guns/pistol/p_up.png" id="16_op7ga"]
-[ext_resource type="Texture2D" uid="uid://bvwqpc5wieufw" path="res://Assets/MyCustomArt/Diamond/Diamond_Thumb.png" id="17_qqcod"]
+[ext_resource type="Texture2D" uid="uid://bvwqpc5wieufw" path="res://Assets/Brandon_Assets/Diamond/Diamond_Thumb.png" id="17_qqcod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
 atlas = ExtResource("2_dw050")

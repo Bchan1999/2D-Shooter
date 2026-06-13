@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://cbwly8xgbkovs" path="res://Scripts/Enemy/SlimeEnemy/states/death.gd" id="4_ocy5h"]
 [ext_resource type="Script" uid="uid://chn13by6ptuc8" path="res://Scripts/Enemy/SlimeEnemy/states/chase.gd" id="5_1ieqg"]
 [ext_resource type="Script" uid="uid://b0i45w6gsb6xe" path="res://Scripts/spawn.gd" id="6_g4odq"]
-[ext_resource type="Texture2D" uid="uid://deahqu5yvqmbh" path="res://Assets/MyCustomArt/slime.png" id="7_a13g0"]
-[ext_resource type="Texture2D" uid="uid://durwml352bf8v" path="res://Assets/MyCustomArt/flash_slime.png" id="8_qf0wk"]
+[ext_resource type="Texture2D" uid="uid://deahqu5yvqmbh" path="res://Assets/Brandon_Assets/Characters/slime.png" id="7_a13g0"]
+[ext_resource type="Texture2D" uid="uid://durwml352bf8v" path="res://Assets/Brandon_Assets/Characters/flash_slime.png" id="8_qf0wk"]
 [ext_resource type="Script" uid="uid://dl86q50syw2wa" path="res://Scripts/Util/state_machine.gd" id="9_ujngl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljpcw"]

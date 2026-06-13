@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c0q6der7qctim"]
 
 [ext_resource type="Script" uid="uid://ca8kasg5o6s8n" path="res://Interaction/interaction_manager.gd" id="1_j22pa"]
-[ext_resource type="Texture2D" uid="uid://bo4wb36fdjkte" path="res://Assets/MyCustomArt/E_popup.png" id="1_p4lj5"]
+[ext_resource type="Texture2D" uid="uid://bo4wb36fdjkte" path="res://Assets/Brandon_Assets/misc/E_popup.png" id="1_p4lj5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nup8o"]
 atlas = ExtResource("1_p4lj5")
