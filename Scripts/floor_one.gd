@@ -22,16 +22,12 @@ func _process(delta: float) -> void:
 	if enemies_dead == current_enemies:
 		enemies_dead = 0
 		if final_round == true:
-			print("end round")
 			teleport.teleport_to_hub()
 		else:
 			next_round()
 			
 func enemy_killed():
 	enemies_dead = enemies_dead + 1
-	print(enemies_dead)
-	print("final round:" , final_round)
-	print("curr ene" , current_enemies)
 	
 func next_round():
 	var next_round = current_round + 1

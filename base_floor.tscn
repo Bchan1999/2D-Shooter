@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://dgp7g2sdy2gea"]
 
-[ext_resource type="Texture2D" uid="uid://bq2hydyoa47el" path="res://Assets/MyCustomArt/tilesets/walls.png" id="1_c3osh"]
+[ext_resource type="Texture2D" uid="uid://bq2hydyoa47el" path="res://Assets/tilesets_kennyassets/walls.png" id="1_c3osh"]
 [ext_resource type="Script" uid="uid://cmmj0sfqoiu86" path="res://base_floor.gd" id="2_dbaxo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ygfu8"]

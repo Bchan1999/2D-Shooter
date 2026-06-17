@@ -12,7 +12,6 @@ var state_node
 var history = []
 
 func _ready() -> void:
-	print("enemy scene" , get_tree().current_scene)
 	health = MAX_HEALTH
 	history = []
 	history.append(Global.enemy.SPAWN)

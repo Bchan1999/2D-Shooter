@@ -12,7 +12,6 @@ func _ready():
 			child.Transitioned.connect(on_child_transition)
 			
 	if initial_state:
-		print(initial_state)
 		initial_state.Enter()
 		current_state = initial_state
 

@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://bmkyd4e3pm0gw"]
+
+[ext_resource type="Texture2D" uid="uid://wck3ulleg2wn" path="res://Assets/Brandon_Assets/PlantGround/Planty_Evolution.png" id="1_0j62n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71rl0"]
+atlas = ExtResource("1_0j62n")
+region = Rect2(0, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4rfw"]
+atlas = ExtResource("1_0j62n")
+region = Rect2(34, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rbqa"]
+atlas = ExtResource("1_0j62n")
+region = Rect2(68, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvswq"]
+atlas = ExtResource("1_0j62n")
+region = Rect2(0, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ih5rm"]
+atlas = ExtResource("1_0j62n")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31jbi"]
+atlas = ExtResource("1_0j62n")
+region = Rect2(34, 0, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktprs"]
+atlas = ExtResource("1_0j62n")
+region = Rect2(34, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52kt5"]
+atlas = ExtResource("1_0j62n")
+region = Rect2(68, 34, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lvjb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71rl0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4rfw")
+}],
+"loop": true,
+"name": &"adult",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rbqa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvswq")
+}],
+"loop": true,
+"name": &"baby",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ih5rm")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31jbi")
+}],
+"loop": true,
+"name": &"seed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktprs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52kt5")
+}],
+"loop": true,
+"name": &"teen",
+"speed": 5.0
+}]
+
+[node name="Plant" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+sprite_frames = SubResource("SpriteFrames_1lvjb")
+animation = &"seed"
+autoplay = "seed"
+frame_progress = 0.18483385

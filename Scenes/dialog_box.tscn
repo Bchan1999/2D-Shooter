@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=4 uid="uid://sglftb3q56qc"]
 
-[ext_resource type="Texture2D" uid="uid://cedkem5dhndc8" path="res://Assets/MyCustomArt/FarmMan_avatar.png" id="1_ccvmi"]
+[ext_resource type="Texture2D" uid="uid://cedkem5dhndc8" path="res://Assets/Brandon_Assets/Characters/FarmMan_avatar.png" id="1_ccvmi"]
 [ext_resource type="Script" uid="uid://cf5tt8plfdoe6" path="res://Scenes/dialog_box.gd" id="1_p43km"]
-[ext_resource type="Texture2D" uid="uid://dxvtxwdp2m2g7" path="res://Assets/MyCustomArt/text_box.png" id="2_p43km"]
-[ext_resource type="Texture2D" uid="uid://cgj6a7hrv4bvn" path="res://Assets/MyCustomArt/E_popup - Copy.png" id="3_jyuxr"]
+[ext_resource type="Texture2D" uid="uid://dxvtxwdp2m2g7" path="res://Assets/Brandon_Assets/misc/text_box.png" id="2_p43km"]
+[ext_resource type="Texture2D" uid="uid://cgj6a7hrv4bvn" path="res://Assets/Brandon_Assets/misc/E_popup - Copy.png" id="3_jyuxr"]
 [ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="5_jyuxr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s3w0x"]

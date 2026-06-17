@@ -1,26 +1,20 @@
 extends Camera2D
 
-#@onready var player: CharacterBody2D = $"../Player"
-#@export var randomStrength : float = 2.0
-#@export var shakeFade : float = 30.0
-#
-#var rng = RandomNumberGenerator.new()
-#var shake_strength : float = 0.0
-#
-#func _ready() -> void:
-	#Global.enemy_kill.connect(enemy_killed)
-	#
-#func apply_shake():
-	#shake_strength = randomStrength
-	#
-#func _process(delta: float) -> void:
-	#global_position = player.position
-	#if shake_strength > 0:
-		#shake_strength = lerpf(shake_strength, 0, shakeFade * delta)
-		#offset = randomOffset()
-#
-#func randomOffset() -> Vector2:
-	#return Vector2(rng.randf_range(-shake_strength, shake_strength), rng.randf_range(-shake_strength, shake_strength))
-#
-#func enemy_killed():
-	#apply_shake()
+@export var shake_strength: float = 1.0
+@export var shake_fade: float = 5.0
+
+var _current_strength: float = 0.0
+var _rng := RandomNumberGenerator.new()
+
+func apply_shake(strength: float = -1.0) -> void:
+	_current_strength = strength if strength > 0.0 else shake_strength
+
+func _process(delta: float) -> void:
+	if _current_strength > 0.0:
+		_current_strength = lerpf(_current_strength, 0.0, shake_fade * delta)
+		offset = Vector2(
+			_rng.randf_range(-_current_strength, _current_strength),
+			_rng.randf_range(-_current_strength, _current_strength)
+		)
+	else:
+		offset = Vector2.ZERO

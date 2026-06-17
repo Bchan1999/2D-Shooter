@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5uary7ypfwgu"]
+
+[ext_resource type="Texture2D" uid="uid://chgnb8lvifdpy" path="res://Assets/Brandon_Assets/Characters/Turret.png" id="1_larbj"]
+[ext_resource type="Script" uid="uid://5w7vvgetgpp2" path="res://Scripts/Player/turret.gd" id="1_xfg2n"]
+[ext_resource type="Script" uid="uid://cqfr5wnrjn28" path="res://Scripts/camera_2d.gd" id="2_guuka"]
+[ext_resource type="Texture2D" uid="uid://cxyeonnjp3dmu" path="res://Assets/Brandon_Assets/Diamond/Diamond.png" id="4_u68ox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guuka"]
+atlas = ExtResource("1_larbj")
+region = Rect2(0, 0, 64, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfg2n"]
+atlas = ExtResource("1_larbj")
+region = Rect2(64, 62, 64, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u68ox"]
+atlas = ExtResource("1_larbj")
+region = Rect2(128, 124, 64, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q72hu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guuka")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfg2n")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u68ox")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5lb2t"]
+height = 32.0
+
+[node name="Turret" type="CharacterBody2D" node_paths=PackedStringArray("aim")]
+script = ExtResource("1_xfg2n")
+aim = NodePath("Aim")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q72hu")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_5lb2t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_guuka")
+
+[node name="Aim" type="Marker2D" parent="."]
+
+[node name="Diamond" type="Sprite2D" parent="Aim"]
+position = Vector2(17, 0)
+scale = Vector2(0.31489378, 0.31489378)
+texture = ExtResource("4_u68ox")
+
+[node name="GunHole" type="Marker2D" parent="Aim"]
+position = Vector2(17, 0)

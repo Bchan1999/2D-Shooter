@@ -1,6 +1,6 @@
 extends Control
 
-var resource = load("res://Dialogue/dialogue_test.dialogue")
+var resource = load("res://Dialogue_Data/dialogue_test.dialogue")
 @onready var dialogue_label: DialogueLabel = $"Control/TileMapLayer/DialogueLabel"
 @onready var interact_ind: Sprite2D = $"Control/TileMapLayer/Interact_Ind"
 @onready var control: Control = $Control
@@ -28,6 +28,7 @@ func _process(delta:float):
 				disable_dialog()
 	
 func show_dialog(dialog):
+	print("dialog activate", dialog)
 	Global.freeze_game.emit(true)
 	self.visible = true
 	dialog_state = true

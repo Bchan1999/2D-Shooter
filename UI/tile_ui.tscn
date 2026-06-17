@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cu5burmjo48jq"]
+[gd_scene load_steps=20 format=4 uid="uid://cu5burmjo48jq"]
 
 [ext_resource type="Script" uid="uid://ctcrnxfkagw76" path="res://tile_ui.gd" id="1_as8ae"]
-[ext_resource type="Texture2D" uid="uid://g3dhiw5xnqjm" path="res://Assets/MyCustomArt/Tile_UI/l00_sprite_1.png" id="2_yeym4"]
-[ext_resource type="Texture2D" uid="uid://do63vxdoiatlv" path="res://Assets/MyCustomArt/Tile_UI/l01_sprite_1.png" id="3_u5eqj"]
-[ext_resource type="Texture2D" uid="uid://cnupysa8fgkmh" path="res://Assets/MyCustomArt/Tile_UI/l02_sprite_1.png" id="4_ip5th"]
-[ext_resource type="Texture2D" uid="uid://bcajdk5e7sm0e" path="res://Assets/MyCustomArt/Tile_UI/l08_sprite_1.png" id="5_w7d1j"]
-[ext_resource type="Texture2D" uid="uid://bn201j8x8qhdv" path="res://Assets/MyCustomArt/Tile_UI/l09_sprite_1.png" id="6_y6ugx"]
-[ext_resource type="Texture2D" uid="uid://4ce6qyq1iwlt" path="res://Assets/MyCustomArt/Tile_UI/l10_sprite_1.png" id="7_w4kpk"]
-[ext_resource type="Texture2D" uid="uid://7ke601ounbvu" path="res://Assets/MyCustomArt/Tile_UI/l11_sprite_1.png" id="8_d4e8y"]
+[ext_resource type="Texture2D" uid="uid://g3dhiw5xnqjm" path="res://Assets/Brandon_Assets/UI_And_Tiles/l00_sprite_1.png" id="2_yeym4"]
+[ext_resource type="Texture2D" uid="uid://do63vxdoiatlv" path="res://Assets/Brandon_Assets/UI_And_Tiles/l01_sprite_1.png" id="3_u5eqj"]
+[ext_resource type="Texture2D" uid="uid://cnupysa8fgkmh" path="res://Assets/Brandon_Assets/UI_And_Tiles/l02_sprite_1.png" id="4_ip5th"]
+[ext_resource type="Texture2D" uid="uid://bcajdk5e7sm0e" path="res://Assets/Brandon_Assets/UI_And_Tiles/l08_sprite_1.png" id="5_w7d1j"]
+[ext_resource type="Texture2D" uid="uid://bn201j8x8qhdv" path="res://Assets/Brandon_Assets/UI_And_Tiles/l09_sprite_1.png" id="6_y6ugx"]
+[ext_resource type="Texture2D" uid="uid://4ce6qyq1iwlt" path="res://Assets/Brandon_Assets/UI_And_Tiles/l10_sprite_1.png" id="7_w4kpk"]
+[ext_resource type="Texture2D" uid="uid://7ke601ounbvu" path="res://Assets/Brandon_Assets/UI_And_Tiles/l11_sprite_1.png" id="8_d4e8y"]
+[ext_resource type="Texture2D" uid="uid://dfx38l2ecovli" path="res://Assets/Brandon_Assets/UI_And_Tiles/TileUI.png" id="9_w7d1j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5w1d"]
 size = Vector2(10, 10)
@@ -76,6 +77,51 @@ _data = {
 &"green_card_select": SubResource("Animation_ip5th")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip5th"]
+size = Vector2(10, 10)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6ugx"]
+texture = ExtResource("9_w7d1j")
+margins = Vector2i(1, 3)
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_w4kpk"]
+tile_size = Vector2i(10, 10)
+sources/1 = SubResource("TileSetAtlasSource_y6ugx")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w7d1j"]
+texture = ExtResource("9_w7d1j")
+margins = Vector2i(1, 3)
+separation = Vector2i(2, 2)
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_y6ugx"]
+tile_size = Vector2i(10, 10)
+sources/1 = SubResource("TileSetAtlasSource_w7d1j")
+
 [node name="TileUI" type="Node2D"]
 script = ExtResource("1_as8ae")
 
@@ -84,6 +130,7 @@ position = Vector2(240, 135)
 texture = ExtResource("2_yeym4")
 
 [node name="base_tile" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(240, 135)
 texture = ExtResource("3_u5eqj")
 
@@ -124,6 +171,24 @@ texture = ExtResource("8_d4e8y")
 libraries = {
 &"": SubResource("AnimationLibrary_y6ugx")
 }
+
+[node name="TopTileMiddle" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopTileMiddle"]
+position = Vector2(241, 86)
+shape = SubResource("RectangleShape2D_ip5th")
+
+[node name="TileMapUI" type="Node2D" parent="."]
+
+[node name="BaseTiles" type="TileMapLayer" parent="TileMapUI"]
+position = Vector2(5, 3)
+tile_map_data = PackedByteArray("AAAQAAUAAQAAAAAAAAARAAUAAQAAAAAAAAASAAUAAQAAAAAAAAATAAUAAQAAAAAAAAAUAAUAAQAAAAAAAAAVAAUAAQAAAAAAAAAWAAUAAQAAAAAAAAAXAAUAAQAAAAAAAAAYAAUAAQAAAAAAAAAZAAUAAQAAAAAAAAAaAAUAAQAAAAAAAAAbAAUAAQAAAAAAAAAcAAUAAQAAAAAAAAAdAAUAAQAAAAAAAAAeAAUAAQAAAAAAAAAfAAUAAQAAAAAAAAAgAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAAPAAYAAQAAAAAAAAAPAAcAAQAAAAAAAAAPAAgAAQAAAAAAAAAPAAkAAQAAAAAAAAAPAAoAAQAAAAAAAAAPAAsAAQAAAAAAAAAPAAwAAQAAAAAAAAAPAA0AAQAAAAAAAAAPAA4AAQAAAAAAAAAQAA4AAQAAAAAAAAARAA4AAQAAAAAAAAASAA4AAQAAAAAAAAATAA4AAQAAAAAAAAAUAA4AAQAAAAAAAAAVAA4AAQAAAAAAAAAWAA4AAQAAAAAAAAAXAA4AAQAAAAAAAAAYAA4AAQAAAAAAAAAZAA4AAQAAAAAAAAAaAA4AAQAAAAAAAAAbAA4AAQAAAAAAAAAcAA4AAQAAAAAAAAAdAA4AAQAAAAAAAAAeAA4AAQAAAAAAAAAfAA4AAQAAAAAAAAAgAA4AAQAAAAAAAAAgAA0AAQAAAAAAAAAgAAwAAQAAAAAAAAAgAAsAAQAAAAAAAAAgAAoAAQAAAAAAAAAgAAkAAQAAAAAAAAAgAAgAAQAAAAAAAAAgAAcAAQAAAAAAAAAgAAYAAQAAAAAAAAAQAA0AAQAAAAAAAAAQAAwAAQAAAAAAAAAQAAsAAQAAAAAAAAAQAAoAAQAAAAAAAAAQAAkAAQAAAAAAAAAQAAgAAQAAAAAAAAAQAAcAAQAAAAAAAAAQAAYAAQAAAAAAAAARAAYAAQAAAAAAAAASAAYAAQAAAAAAAAATAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAAVAAYAAQAAAAAAAAAWAAYAAQAAAAAAAAAXAAYAAQAAAAAAAAAYAAYAAQAAAAAAAAAZAAYAAQAAAAAAAAAaAAYAAQAAAAAAAAAbAAYAAQAAAAAAAAAcAAYAAQAAAAAAAAAdAAYAAQAAAAAAAAAeAAYAAQAAAAAAAAAfAAYAAQAAAAAAAAAfAAcAAQAAAAAAAAAfAAgAAQAAAAAAAAAfAAkAAQABAAEAAAAfAAoAAQAAAAAAAAAfAAsAAQAAAAAAAAAfAAwAAQAAAAAAAAAfAA0AAQAAAAAAAAAeAA0AAQAAAAAAAAARAA0AAQAAAAAAAAASAA0AAQAAAAAAAAATAA0AAQAAAAAAAAAUAA0AAQAAAAAAAAAVAA0AAQAAAAAAAAAWAA0AAQAAAAAAAAAXAA0AAQAAAAAAAAAYAA0AAQAAAAAAAAAZAA0AAQAAAAAAAAAaAA0AAQAAAAAAAAAbAA0AAQAAAAAAAAAcAA0AAQAAAAAAAAAdAA0AAQAAAAAAAAAeAAwAAQAAAAAAAAAdAAwAAQAAAAAAAAAcAAwAAQAAAAAAAAAbAAwAAQAAAAAAAAAaAAwAAQAAAAAAAAAZAAwAAQAAAAAAAAAYAAwAAQAAAAAAAAAXAAwAAQAAAAAAAAAWAAwAAQAAAAAAAAAVAAwAAQAAAAAAAAAUAAwAAQAAAAAAAAATAAwAAQAAAAAAAAASAAwAAQAAAAAAAAARAAwAAQAAAAAAAAARAAsAAQAAAAAAAAASAAsAAQAAAAAAAAATAAsAAQAAAAAAAAAUAAsAAQAAAAAAAAAVAAsAAQAAAAAAAAAWAAsAAQAAAAAAAAAXAAsAAQAAAAAAAAAYAAsAAQAAAAAAAAAZAAsAAQAAAAAAAAAaAAsAAQAAAAAAAAAbAAsAAQAAAAAAAAAcAAsAAQAAAAAAAAAdAAsAAQAAAAAAAAAeAAsAAQAAAAAAAAAeAAoAAQAAAAAAAAAeAAkAAQAAAAAAAAAeAAgAAQAAAAAAAAAeAAcAAQAAAAAAAAAdAAcAAQAAAAAAAAAcAAcAAQAAAAAAAAAbAAcAAQAAAAAAAAAaAAcAAQAAAAAAAAAZAAcAAQAAAAAAAAAYAAcAAQAAAAAAAAAXAAcAAQAAAAAAAAAWAAcAAQAAAAAAAAAVAAcAAQAAAAAAAAAUAAcAAQAAAAAAAAATAAcAAQAAAAAAAAASAAcAAQAAAAAAAAARAAcAAQAAAAAAAAARAAgAAQAAAAAAAAARAAkAAQAAAAAAAAARAAoAAQAAAAAAAAASAAgAAQAAAAAAAAASAAkAAQAAAAAAAAASAAoAAQAAAAAAAAATAAkAAQAAAAAAAAATAAgAAQAAAAAAAAATAAoAAQAAAAAAAAAUAAgAAQAAAAAAAAAUAAkAAQAAAAAAAAAUAAoAAQAAAAAAAAAVAAgAAQAAAAAAAAAVAAkAAQAAAAAAAAAVAAoAAQAAAAAAAAAWAAgAAQABAAEAAAAWAAkAAQABAAIAAAAXAAgAAQABAAEAAAAXAAkAAQABAAAAAAAWAAoAAQABAAEAAAAYAAgAAQABAAEAAAAXAAoAAQABAAEAAAAYAAoAAQABAAEAAAAZAAoAAQAAAAAAAAAaAAoAAQAAAAAAAAAbAAoAAQAAAAAAAAAaAAkAAQAAAAAAAAAbAAkAAQAAAAAAAAAcAAkAAQAAAAAAAAAdAAkAAQAAAAAAAAAdAAoAAQAAAAAAAAAcAAoAAQAAAAAAAAAcAAgAAQAAAAAAAAAdAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAYAAkAAQABAAAAAAAZAAkAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_w4kpk")
+
+[node name="TileSelect" type="TileMapLayer" parent="TileMapUI"]
+position = Vector2(5, 3)
+tile_set = SubResource("TileSet_y6ugx")
 
 [connection signal="input_event" from="slime_card_top/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="slime_card_top/Area2D" to="." method="_on_area_2d_mouse_entered"]
