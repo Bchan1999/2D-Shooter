@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bsh8a52de1j5"]
+[gd_scene load_steps=16 format=3 uid="uid://bsh8a52de1j5"]
 
 [ext_resource type="Script" uid="uid://dclkmrutlsdng" path="res://test_arena.gd" id="1_s6hhk"]
 [ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/Ground_Tiles/tile_test.png" id="2_ygfu8"]
 [ext_resource type="PackedScene" uid="uid://4dm3hwyx5tsn" path="res://basic_tile.tscn" id="3_pt0wf"]
 [ext_resource type="PackedScene" uid="uid://bbp15b8tgminm" path="res://start_tile.tscn" id="4_xw7hd"]
 [ext_resource type="PackedScene" uid="uid://ca1cw7cdyyho6" path="res://enemy_spawner.tscn" id="4_ygfu8"]
-[ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Scenes/player.tscn" id="5_ygfu8"]
-[ext_resource type="PackedScene" uid="uid://jt0mmrhpr0ly" path="res://slime_tile.tscn" id="6_pt0wf"]
+[ext_resource type="PackedScene" uid="uid://gtrrtx8taelu" path="res://Scripts/Tiles/fish_tile.tscn" id="5_sk7i1"]
+[ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Scripts/Player/player.tscn" id="5_ygfu8"]
+[ext_resource type="PackedScene" uid="uid://jt0mmrhpr0ly" path="res://Scripts/Tiles/slime_tile.tscn" id="6_pt0wf"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xw7hd"]
 resource_name = "SlimeTile"
@@ -20,11 +21,16 @@ scenes/1/scene = ExtResource("3_pt0wf")
 resource_name = "StartTile"
 scenes/1/scene = ExtResource("4_xw7hd")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_cvihi"]
+resource_name = "FishTile"
+scenes/1/scene = ExtResource("5_sk7i1")
+
 [sub_resource type="TileSet" id="TileSet_pt0wf"]
 tile_size = Vector2i(139, 139)
 sources/0 = SubResource("TileSetScenesCollectionSource_xw7hd")
 sources/1 = SubResource("TileSetScenesCollectionSource_sk7i1")
 sources/2 = SubResource("TileSetScenesCollectionSource_t38ls")
+sources/4 = SubResource("TileSetScenesCollectionSource_cvihi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygfu8"]
 texture = ExtResource("2_ygfu8")
@@ -65,7 +71,5 @@ position = Vector2(67, 101)
 
 [node name="Player" parent="." instance=ExtResource("5_ygfu8")]
 position = Vector2(29, 19)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="WorldWalls" type="StaticBody2D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://uf8x4guwbq85"]
 
 [ext_resource type="Texture2D" uid="uid://dpdbcy7cvwk0y" path="res://Assets/Brandon_Assets/Characters/Farm Man.png" id="1_55yd7"]
-[ext_resource type="Script" uid="uid://cu24b2xieoa8r" path="res://Scripts/farm_man.gd" id="1_nup8o"]
+[ext_resource type="Script" uid="uid://cu24b2xieoa8r" path="res://Scripts/NPC/FarmMan/farm_man.gd" id="1_nup8o"]
 [ext_resource type="JSON" path="res://tres/farm_man_dialog.json" id="2_ux84q"]
 [ext_resource type="Texture2D" uid="uid://bo4wb36fdjkte" path="res://Assets/Brandon_Assets/misc/E_popup.png" id="2_yba25"]
 [ext_resource type="PackedScene" uid="uid://bnh6hdi6k717b" path="res://Interaction/Interaction_Area/interaction_area.tscn" id="4_c61wx"]

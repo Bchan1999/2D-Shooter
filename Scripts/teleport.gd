@@ -6,12 +6,10 @@ class_name Teleport
 var player
 
 func _on_set_player_body_entered(body: Node2D) -> void:
-	print("body: ", body)
 	if body.is_in_group("player"):
 		player = body
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("body: ", body)
 	if body.is_in_group("player"):
 		teleport_to_target(body)
 		

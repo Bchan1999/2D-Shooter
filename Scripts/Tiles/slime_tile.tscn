@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://jt0mmrhpr0ly"]
 
 [ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/Ground_Tiles/tile_test.png" id="1_1qurw"]
-[ext_resource type="Script" uid="uid://d02erggpr1a6a" path="res://slime_tile.gd" id="1_sxiwx"]
-[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Scenes/slime_enemy.tscn" id="2_5djja"]
+[ext_resource type="Script" uid="uid://d02erggpr1a6a" path="res://Scripts/Tiles/slime_tile.gd" id="1_sxiwx"]
+[ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Scripts/Enemy/SlimeEnemy/slime_enemy.tscn" id="2_5djja"]
 [ext_resource type="PackedScene" uid="uid://ca1cw7cdyyho6" path="res://enemy_spawner.tscn" id="2_edusn"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_edusn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5djja"]
 texture = ExtResource("1_1qurw")
 texture_region_size = Vector2i(139, 139)
 0:0/0 = 0
@@ -15,7 +15,7 @@ texture_region_size = Vector2i(139, 139)
 
 [sub_resource type="TileSet" id="TileSet_sxiwx"]
 tile_size = Vector2i(139, 139)
-sources/6 = SubResource("TileSetAtlasSource_edusn")
+sources/6 = SubResource("TileSetAtlasSource_5djja")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [6, Vector2i(0, 0)], [3, Vector2i(1, 0)], [6, Vector2i(2, 0)], [4, Vector2i(2, 0)], [6, Vector2i(5, 0)], [5, Vector2i(2, 1)], [6, Vector2i(8, 1)]]
 
 [node name="SlimeTile" type="Node2D"]
@@ -25,7 +25,6 @@ metadata/_edit_vertical_guides_ = [139.0]
 metadata/_edit_horizontal_guides_ = [139.0]
 
 [node name="BaseFloor" type="TileMapLayer" parent="."]
-z_index = -1
 position = Vector2(-69.5, -69.5)
 tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 6, 0, 8, 0, 1, 0, 0, 0)
 tile_set = SubResource("TileSet_sxiwx")

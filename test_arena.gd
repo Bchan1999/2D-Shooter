@@ -16,7 +16,7 @@ const BASE_TO_GAME_TILE: Dictionary = {
 	Vector2i(1, 1): [0, 1],  # SlimeTile
 	Vector2i(2, 1): [1, 1],  # BasicTile
 	Vector2i(0, 2): [1, 1],  # BasicTile
-	Vector2i(1, 2): [1, 1],  # BasicTile
+	Vector2i(1, 2): [4, 1],  # FishTile***
 	Vector2i(0, 3): [1, 1],  # BasicTile
 	Vector2i(1, 3): [1, 1],  # BasicTile
 }
@@ -46,7 +46,7 @@ func _sync_tiles_from_base() -> void:
 	for cell in used:
 		min_x = min(min_x, cell.x)
 		min_y = min(min_y, cell.y)
-	var offset = Vector2i(min_x, min_y)
+	var offset = Vector2i(min_x, min_y) 
 
 	game_tiles.clear()
 	for cell in used:
@@ -64,10 +64,7 @@ func _spawn_player_on_start_tile() -> void:
 			return
 
 func _on_enemy_killed() -> void:
-	print("enemy killed")
-	print(get_tree().get_nodes_in_group("enemy").size())
 	if get_tree().get_nodes_in_group("enemy").size() - 1 == 0:
-		print("show ui")
 		show_tile_ui()
 
 func show_tile_ui() -> void:

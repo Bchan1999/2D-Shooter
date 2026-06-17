@@ -2,8 +2,6 @@ extends Node2D
 #  Parent node controls the trigger of the spawnwer
 class_name EnemySpawner
 
-@export var slime_scene : PackedScene
-
 func spawn_enemy(scene: PackedScene) -> Node2D:
 	var enemy = scene.instantiate()
 	get_parent().add_child(enemy)
