@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dfbc4xym4upx0"]
+[gd_scene load_steps=43 format=3 uid="uid://dfbc4xym4upx0"]
 
 [ext_resource type="Texture2D" uid="uid://c3t3i1jqeltok" path="res://Assets/Brandon_Assets/Characters/Fish-Monster/Fish Attack.png" id="1_hqk5r"]
 [ext_resource type="Script" uid="uid://dw85dhsob4oq4" path="res://Nodes/Enemy/fish_monster/fish_monster.gd" id="1_nutq8"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cd2852gamhlck" path="res://Assets/Brandon_Assets/Characters/Fish-Monster/Fish Walking.png" id="4_d6lc5"]
 [ext_resource type="Script" uid="uid://ctfg1ewvpq7fg" path="res://Nodes/Enemy/fish_monster/idle.gd" id="6_87opd"]
 [ext_resource type="Script" uid="uid://c00k8totyhnr3" path="res://Nodes/Enemy/fish_monster/chase.gd" id="7_806q0"]
+[ext_resource type="Script" uid="uid://b7twvs0lpnunx" path="res://Nodes/Enemy/fish_monster/death.gd" id="8_6f7cs"]
+[ext_resource type="Script" uid="uid://cjmp2msu31o3" path="res://Nodes/Enemy/fish_monster/hurt.gd" id="9_57g6e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0db2"]
 atlas = ExtResource("1_hqk5r")
@@ -202,6 +204,60 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqk5r"]
 radius = 13.0
 
+[sub_resource type="Animation" id="Animation_jiyep"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+
+[sub_resource type="Animation" id="Animation_6f7cs"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666668, 0.4, 0.53333336, 0.6666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6]
+}
+
 [sub_resource type="Animation" id="Animation_87opd"]
 resource_name = "Chase"
 length = 0.7
@@ -260,42 +316,19 @@ tracks/1/keys = {
 "values": [&"Idle"]
 }
 
-[sub_resource type="Animation" id="Animation_jiyep"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Idle"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yofgi"]
 _data = {
-&"Chase": SubResource("Animation_87opd"),
-&"Idle": SubResource("Animation_hqk5r"),
-&"RESET": SubResource("Animation_jiyep")
+&"RESET": SubResource("Animation_jiyep"),
+&"chase": SubResource("Animation_87opd"),
+&"death": SubResource("Animation_6f7cs"),
+&"idle": SubResource("Animation_hqk5r")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_806q0"]
 radius = 201.15913
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6f7cs"]
+radius = 13.038404
 
 [node name="FishMonster" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
 script = ExtResource("1_nutq8")
@@ -306,6 +339,7 @@ sprite_frames = SubResource("SpriteFrames_c566t")
 animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_hqk5r")
 
@@ -313,6 +347,11 @@ shape = SubResource("CircleShape2D_hqk5r")
 libraries = {
 &"": SubResource("AnimationLibrary_yofgi")
 }
+
+[node name="Death" type="Node" parent="." node_paths=PackedStringArray("anim", "enemy")]
+script = ExtResource("8_6f7cs")
+anim = NodePath("../AnimationPlayer")
+enemy = NodePath("..")
 
 [node name="Idle" type="Node" parent="." node_paths=PackedStringArray("anim", "enemy")]
 script = ExtResource("6_87opd")
@@ -326,11 +365,27 @@ enemy = NodePath("..")
 
 [node name="Attack" type="Node" parent="."]
 
+[node name="Hurt" type="Node" parent="." node_paths=PackedStringArray("anim", "enemy", "sprite")]
+script = ExtResource("9_57g6e")
+anim = NodePath("../AnimationPlayer")
+enemy = NodePath("..")
+sprite = NodePath("../AnimatedSprite2D")
+
 [node name="Detect" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+visible = false
 scale = Vector2(1.0011151, 1.0055636)
 shape = SubResource("CircleShape2D_806q0")
 
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_6f7cs")
+
+[connection signal="area_entered" from="Detect" to="." method="_on_detect_area_entered"]
 [connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

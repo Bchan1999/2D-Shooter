@@ -41,6 +41,7 @@ bullet=""
 enemy=""
 player=""
 diamond=""
+give_dmg=""
 
 [input]
 

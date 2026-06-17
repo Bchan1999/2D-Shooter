@@ -14,7 +14,7 @@ func randomize_wander():
 	
 func Enter():
 	randomize_wander()
-	anim.play("Idle")
+	anim.play("idle")
 	
 func Update(delta: float):
 	if wander_time > 0:

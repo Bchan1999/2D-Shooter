@@ -14,8 +14,8 @@ var history = []
 func _ready() -> void:
 	health = MAX_HEALTH
 	history = []
-	history.append(Global.enemy.SPAWN)
-	current_state = Global.enemy.SPAWN
+	history.append(Global.enemy.IDLE)
+	current_state = Global.enemy.IDLE
 	$Idle.Enter()
 	state_node = $Idle
 	
@@ -44,13 +44,13 @@ func change_state(new_state):
 		history.append(current_state)
 		$Idle.Enter()
 		state_node = $Idle
-	#elif current_state == Global.enemy.HURT:
-		#history.append(current_state)
-		#$Hurt.Enter()
-		#state_node = $Hurt
-	#elif current_state == Global.enemy.DEATH:
-		#$Death.Enter()
-		#state_node = $Death
+	elif current_state == Global.enemy.HURT:
+		history.append(current_state)
+		$Hurt.Enter()
+		state_node = $Hurt
+	elif current_state == Global.enemy.DEATH:
+		$Death.Enter()
+		state_node = $Death
 	elif current_state == Global.enemy.CHASE:
 		history = []
 		history.append(current_state)
@@ -60,26 +60,27 @@ func change_state(new_state):
 		#$Spawn.Enter()
 		#state_node = $Spawn
 
-#func take_damage(dmg):
-	#health = health - dmg
-	#health = clamp(health, 0, MAX_HEALTH)
-	#if health == 0:
-		#Global.enemy_kill.emit()
-		#change_state(Global.enemy.DEATH)
-		#
-#func get_dmg():
-	#return damage
+func take_damage(dmg):
+	health = health - dmg
+	health = clamp(health, 0, MAX_HEALTH)
+	if health == 0:
+		Global.enemy_kill.emit()
+		change_state(Global.enemy.DEATH)
+		
+func get_dmg():
+	return damage
 #
-#func _on_hit_box_area_entered(area: Area2D) -> void:
-	#if area.is_in_group("bullet"):
-		#if area.has_method("get_dmg"):
-			#if current_state == Global.enemy.DEATH || current_state == Global.enemy.SPAWN:
-				#return
-			#else:
-				#change_state(Global.enemy.HURT)
-				#take_damage(area.get_dmg())
-				#
-		#assert(area.has_method("get_dmg"), "Bullet needs a get_dmg() method")
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if area.is_in_group("give_dmg"):
+		print(current_state)
+		if area.has_method("get_dmg"):
+			if current_state == Global.enemy.DEATH || current_state == Global.enemy.SPAWN:
+				return
+			else:
+				change_state(Global.enemy.HURT)
+				take_damage(area.get_dmg())
+				
+		assert(area.has_method("get_dmg"), "Bullet needs a get_dmg() method")
 		#
 func get_player_chase() -> Vector2:
 	return player.global_position
@@ -90,6 +91,6 @@ func _on_detect_body_entered(body: Node2D) -> void:
 		player = body
 		change_state(Global.enemy.CHASE)
 		
-#func previous_state_change():
-	#history.pop_back()
-	#change_state(history.pop_front())
+func previous_state_change():
+	history.pop_back()
+	change_state(history.pop_front())

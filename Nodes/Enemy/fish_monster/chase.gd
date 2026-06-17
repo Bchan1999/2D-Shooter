@@ -7,7 +7,7 @@ class_name FishChase
 
 
 func Enter():
-	anim.play("Chase")
+	anim.play("chase")
 
 func Exit():
 	pass
