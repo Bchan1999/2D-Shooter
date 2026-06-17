@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var progress_bar: ProgressBar = $ProgressBar
 @export var anim : AnimationPlayer
 @onready var MAX_HEALTH = 10
 @onready var player
@@ -12,14 +12,23 @@ var state_node
 var history = []
 
 func _ready() -> void:
-	health = MAX_HEALTH
+	set_health()
 	history = []
 	history.append(Global.enemy.IDLE)
 	current_state = Global.enemy.IDLE
 	$Idle.Enter()
 	state_node = $Idle
-	
 	#assert(player, "Slime Enemy: Player path is invalid/Player cannot be found")
+	
+func set_health():
+	health = MAX_HEALTH
+	progress_bar.max_value = MAX_HEALTH
+	progress_bar.value = health
+	pass
+	
+func update_health_bar():
+	progress_bar.value = health
+	pass
 	
 func _process(delta: float) -> void:
 	if state_node:
@@ -63,6 +72,7 @@ func change_state(new_state):
 func take_damage(dmg):
 	health = health - dmg
 	health = clamp(health, 0, MAX_HEALTH)
+	update_health_bar()
 	if health == 0:
 		Global.enemy_kill.emit()
 		change_state(Global.enemy.DEATH)
