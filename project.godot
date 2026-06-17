@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="2D Shooter"
-run/main_scene="uid://c0qh7xrnmo2r8"
+run/main_scene="uid://cmvgu86cirlm4"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Scripts/Global/global.gd"
-SceneManager="*res://Scripts/Global/scene_manager.gd"
+Global="*res://Nodes/Global/global.gd"
+SceneManager="*res://Nodes/Global/scene_manager.gd"
 InteractionManager="*res://Interaction/InteractionManager.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 

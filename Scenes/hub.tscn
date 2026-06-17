@@ -5,20 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://dvfps54n35fmu" path="res://Assets/tilesets_kennyassets/grass.png" id="3_f11wv"]
 [ext_resource type="Texture2D" uid="uid://bknebob0axu6p" path="res://Assets/tilesets_kennyassets/decor_16x16.png" id="4_y6p6t"]
 [ext_resource type="Texture2D" uid="uid://cr4bc21khe6ox" path="res://Assets/tilesets_kennyassets/walls/wooden_door.png" id="5_4vksb"]
-[ext_resource type="PackedScene" uid="uid://jt0mmrhpr0ly" path="res://Scripts/Tiles/slime_tile.tscn" id="5_72fsv"]
+[ext_resource type="PackedScene" uid="uid://jt0mmrhpr0ly" path="res://Nodes/Tiles/slime_tile.tscn" id="5_72fsv"]
 [ext_resource type="Texture2D" uid="uid://bmwqk3fy013ks" path="res://Assets/tilesets_kennyassets/plains.png" id="6_kodr4"]
-[ext_resource type="PackedScene" path="res://basic_tile.tscn" id="6_qi2g6"]
-[ext_resource type="PackedScene" path="res://start_tile.tscn" id="7_7gm0b"]
+[ext_resource type="PackedScene" uid="uid://4dm3hwyx5tsn" path="res://basic_tile.tscn" id="6_qi2g6"]
+[ext_resource type="PackedScene" uid="uid://bbp15b8tgminm" path="res://start_tile.tscn" id="7_7gm0b"]
 [ext_resource type="PackedScene" uid="uid://bqquf3tq1b70s" path="res://Scenes/door.tscn" id="7_kud3j"]
-[ext_resource type="PackedScene" uid="uid://gtrrtx8taelu" path="res://Scripts/Tiles/fish_tile.tscn" id="8_3du0j"]
-[ext_resource type="PackedScene" uid="uid://uf8x4guwbq85" path="res://Scripts/NPC/FarmMan/farm_man.tscn" id="8_72fsv"]
+[ext_resource type="PackedScene" uid="uid://gtrrtx8taelu" path="res://Nodes/Tiles/fish_tile.tscn" id="8_3du0j"]
+[ext_resource type="PackedScene" uid="uid://uf8x4guwbq85" path="res://Nodes/NPC/FarmMan/farm_man.tscn" id="8_72fsv"]
 [ext_resource type="PackedScene" uid="uid://jk6ik058ipb1" path="res://Scenes/teleport.tscn" id="9_qi2g6"]
 [ext_resource type="PackedScene" uid="uid://bsh8a52de1j5" path="res://test_arena.tscn" id="10_vkujn"]
-[ext_resource type="PackedScene" path="res://Scripts/Player/player.tscn" id="11_f11wv"]
+[ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Nodes/Player/player.tscn" id="11_f11wv"]
 [ext_resource type="PackedScene" uid="uid://sglftb3q56qc" path="res://Scenes/dialog_box.tscn" id="12_y6p6t"]
-[ext_resource type="PackedScene" uid="uid://dychxk3eqxvry" path="res://Scripts/Plants_Soil/soil.tscn" id="17_qi2g6"]
+[ext_resource type="PackedScene" uid="uid://dychxk3eqxvry" path="res://Nodes/Plants_Soil/soil.tscn" id="17_qi2g6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ace7m"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qi2g6"]
 texture = ExtResource("1_lw6cm")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -87,16 +87,16 @@ texture = ExtResource("1_lw6cm")
 5:5/0/z_index = 1
 5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0.71943474, -8, 0.71943474, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trs84"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gm0b"]
 texture = ExtResource("2_vkujn")
 0:0/0 = 0
 0:0/0/z_index = -1
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1qs5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3du0j"]
 texture = ExtResource("3_f11wv")
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c2sye"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hy0h5"]
 texture = ExtResource("4_y6p6t")
 0:0/0 = 0
 1:0/0 = 0
@@ -121,10 +121,10 @@ texture = ExtResource("4_y6p6t")
 
 [sub_resource type="TileSet" id="TileSet_h1qs5"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ace7m")
-sources/1 = SubResource("TileSetAtlasSource_trs84")
-sources/2 = SubResource("TileSetAtlasSource_h1qs5")
-sources/4 = SubResource("TileSetAtlasSource_c2sye")
+sources/0 = SubResource("TileSetAtlasSource_qi2g6")
+sources/1 = SubResource("TileSetAtlasSource_7gm0b")
+sources/2 = SubResource("TileSetAtlasSource_3du0j")
+sources/4 = SubResource("TileSetAtlasSource_hy0h5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ysrp0"]
 texture = ExtResource("2_vkujn")

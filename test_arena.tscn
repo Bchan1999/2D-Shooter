@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://4dm3hwyx5tsn" path="res://basic_tile.tscn" id="3_pt0wf"]
 [ext_resource type="PackedScene" uid="uid://bbp15b8tgminm" path="res://start_tile.tscn" id="4_xw7hd"]
 [ext_resource type="PackedScene" uid="uid://ca1cw7cdyyho6" path="res://enemy_spawner.tscn" id="4_ygfu8"]
-[ext_resource type="PackedScene" uid="uid://gtrrtx8taelu" path="res://Scripts/Tiles/fish_tile.tscn" id="5_sk7i1"]
-[ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Scripts/Player/player.tscn" id="5_ygfu8"]
-[ext_resource type="PackedScene" uid="uid://jt0mmrhpr0ly" path="res://Scripts/Tiles/slime_tile.tscn" id="6_pt0wf"]
+[ext_resource type="PackedScene" uid="uid://gtrrtx8taelu" path="res://Nodes/Tiles/fish_tile.tscn" id="5_sk7i1"]
+[ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Nodes/Player/player.tscn" id="5_ygfu8"]
+[ext_resource type="PackedScene" uid="uid://jt0mmrhpr0ly" path="res://Nodes/Tiles/slime_tile.tscn" id="6_pt0wf"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xw7hd"]
 resource_name = "SlimeTile"

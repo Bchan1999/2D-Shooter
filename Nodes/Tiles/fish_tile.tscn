@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://gtrrtx8taelu"]
 
-[ext_resource type="Script" uid="uid://flvrx4p34jk4" path="res://Scripts/Tiles/fish_tile.gd" id="1_wr5eg"]
-[ext_resource type="PackedScene" uid="uid://dfbc4xym4upx0" path="res://Scripts/Enemy/fish_monster/fish_monster.tscn" id="2_m6khw"]
+[ext_resource type="Script" uid="uid://flvrx4p34jk4" path="res://Nodes/Tiles/fish_tile.gd" id="1_wr5eg"]
+[ext_resource type="PackedScene" uid="uid://dfbc4xym4upx0" path="res://Nodes/Enemy/fish_monster/fish_monster.tscn" id="2_m6khw"]
 [ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/Ground_Tiles/tile_test.png" id="3_07kut"]
 [ext_resource type="PackedScene" uid="uid://ca1cw7cdyyho6" path="res://enemy_spawner.tscn" id="4_dxxa5"]
 

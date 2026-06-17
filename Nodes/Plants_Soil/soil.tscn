@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://dychxk3eqxvry"]
 
 [ext_resource type="Texture2D" uid="uid://dt6nc5njtnv0n" path="res://Assets/Brandon_Assets/PlantGround/Soil Ground.png" id="1_2ckby"]
-[ext_resource type="PackedScene" uid="uid://bmkyd4e3pm0gw" path="res://Scripts/Plants_Soil/plant.tscn" id="2_4kpje"]
+[ext_resource type="PackedScene" uid="uid://bmkyd4e3pm0gw" path="res://Nodes/Plants_Soil/plant.tscn" id="2_4kpje"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wphok"]
 scenes/1/scene = ExtResource("2_4kpje")

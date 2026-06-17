@@ -1,12 +1,12 @@
 [gd_scene load_steps=39 format=3 uid="uid://dfbc4xym4upx0"]
 
 [ext_resource type="Texture2D" uid="uid://c3t3i1jqeltok" path="res://Assets/Brandon_Assets/Characters/Fish-Monster/Fish Attack.png" id="1_hqk5r"]
-[ext_resource type="Script" uid="uid://dw85dhsob4oq4" path="res://Scripts/Enemy/fish_monster/fish_monster.gd" id="1_nutq8"]
+[ext_resource type="Script" uid="uid://dw85dhsob4oq4" path="res://Nodes/Enemy/fish_monster/fish_monster.gd" id="1_nutq8"]
 [ext_resource type="Texture2D" uid="uid://br5qro7yw1gk4" path="res://Assets/Brandon_Assets/Characters/Fish-Monster/Fish Death.png" id="2_jiyep"]
 [ext_resource type="Texture2D" uid="uid://dojp3uy4cmwhu" path="res://Assets/Brandon_Assets/Characters/Fish-Monster/Fish Idle.png" id="3_yofgi"]
 [ext_resource type="Texture2D" uid="uid://cd2852gamhlck" path="res://Assets/Brandon_Assets/Characters/Fish-Monster/Fish Walking.png" id="4_d6lc5"]
-[ext_resource type="Script" uid="uid://ctfg1ewvpq7fg" path="res://Scripts/Enemy/fish_monster/idle.gd" id="6_87opd"]
-[ext_resource type="Script" uid="uid://c00k8totyhnr3" path="res://Scripts/Enemy/fish_monster/chase.gd" id="7_806q0"]
+[ext_resource type="Script" uid="uid://ctfg1ewvpq7fg" path="res://Nodes/Enemy/fish_monster/idle.gd" id="6_87opd"]
+[ext_resource type="Script" uid="uid://c00k8totyhnr3" path="res://Nodes/Enemy/fish_monster/chase.gd" id="7_806q0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0db2"]
 atlas = ExtResource("1_hqk5r")
@@ -202,6 +202,35 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hqk5r"]
 radius = 13.0
 
+[sub_resource type="Animation" id="Animation_87opd"]
+resource_name = "Chase"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walking"]
+}
+
 [sub_resource type="Animation" id="Animation_hqk5r"]
 resource_name = "Idle"
 length = 0.5
@@ -258,35 +287,6 @@ tracks/1/keys = {
 "values": [&"Idle"]
 }
 
-[sub_resource type="Animation" id="Animation_87opd"]
-resource_name = "Chase"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Walking"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yofgi"]
 _data = {
 &"Chase": SubResource("Animation_87opd"),
@@ -295,7 +295,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_806q0"]
-radius = 59.0
+radius = 201.15913
 
 [node name="FishMonster" type="CharacterBody2D" node_paths=PackedStringArray("anim")]
 script = ExtResource("1_nutq8")
@@ -324,10 +324,13 @@ script = ExtResource("7_806q0")
 anim = NodePath("../AnimationPlayer")
 enemy = NodePath("..")
 
+[node name="Attack" type="Node" parent="."]
+
 [node name="Detect" type="Area2D" parent="."]
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+scale = Vector2(1.0011151, 1.0055636)
 shape = SubResource("CircleShape2D_806q0")
 
 [connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]
