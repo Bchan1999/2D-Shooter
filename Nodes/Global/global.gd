@@ -1,6 +1,6 @@
 extends Node
 
-enum enemy {IDLE, HURT, DEATH, CHASE, SPAWN}
+enum enemy {IDLE, HURT, DEATH, CHASE, SPAWN, ATTACK}
 
 enum scene {HUB, F1 , HUB_F1_DONE}
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://c0qh7xrnmo2r8"]
+[gd_scene load_steps=38 format=4 uid="uid://c0qh7xrnmo2r8"]
 
 [ext_resource type="Texture2D" uid="uid://bq2hydyoa47el" path="res://Assets/tilesets_kennyassets/walls.png" id="1_lw6cm"]
 [ext_resource type="Texture2D" uid="uid://bacah6clper1p" path="res://Assets/tilesets_kennyassets/floors/wooden.png" id="2_vkujn"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Nodes/Player/player.tscn" id="11_f11wv"]
 [ext_resource type="PackedScene" uid="uid://sglftb3q56qc" path="res://Scenes/dialog_box.tscn" id="12_y6p6t"]
 [ext_resource type="PackedScene" uid="uid://dychxk3eqxvry" path="res://Nodes/Plants_Soil/soil.tscn" id="17_qi2g6"]
+[ext_resource type="PackedScene" uid="uid://dfbc4xym4upx0" path="res://Nodes/Enemy/fish_monster/fish_monster.tscn" id="18_7gm0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qi2g6"]
 texture = ExtResource("1_lw6cm")
@@ -325,8 +326,14 @@ tile_set = SubResource("TileSet_h1qs5")
 tile_map_data = PackedByteArray("AAD7//z/AAAAAAAAAAD8//r/AAAAAAAAAAD8//v/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD9//r/AAAAAAAAAAD9//v/AAAAAAAAAAD9//z/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD+//r/AAAAAAAAAAD+//v/AAAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD///r/AAAAAAAAAAD///v/AAAAAAAAAAD///z/AAAAAAAAAAD///3/AAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAAAAPr/AAAAAAAAAAAAAPv/AAAAAAAAAAAAAPz/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAABAPr/AAAAAAAAAAABAPv/AAAAAAAAAAABAPz/AAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAACAPr/AAAAAAAAAAACAPv/AAAAAAAAAAACAPz/AAAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAADAPr/AAAAAAAAAAADAPv/AAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAAEAPr/AAAAAAAAAAAEAPv/AAAAAAAAAAAEAPz/AAAAAAAAAAAEAP3/AAAAAAAAAAAFAPr/AAAAAAAAAAAFAPv/AAAAAAAAAAAFAPz/AAAAAAAAAAD9//j/AQACAAAAAAD+//j/AQACAAAAAAD///j/AQACAAAAAAABAPj/AQACAAAAAAACAPj/AQACAAAAAAADAPj/AQACAAAAAAAEAPj/AQACAAAAAAD7//r/AQABAAEAAAD7//n/AQABAAEAAAD8//j/AQACAAAAAAD7//j/AQABAAAAAAD6//r/AQABAAAAAAD6//v/AQABAAEAAAD6//z/AQABAAEAAAD6//3/AQABAAIAAAD7//7/AQABAAEAAAD7//3/AQAFAAAAAAD7////AQABAAIAAAD8////AQAFAAAAAAD8/wAAAQABAAIAAAD9/wAAAQACAAIAAAD+/wAAAQADAAAAAAD+/wEAAQADAAEAAAD//wEAAQACAAAAAAABAAEAAQACAAAAAAACAAEAAQADAAIAAAACAAAAAQAEAAAAAAADAAAAAQADAAIAAAADAP//AQAEAAAAAAAEAP//AQADAAIAAAAEAP7/AQAEAAAAAAAFAP7/AQADAAIAAAAFAP3/AQAEAAAAAAAGAP3/AQADAAIAAAAGAPz/AQADAAEAAAAGAPv/AQADAAEAAAAGAPr/AQADAAEAAAAGAPn/AQADAAEAAAAGAPj/AQADAAAAAAAFAPj/AQACAAAAAAABAPn/AQACAAQAAAD8//n/AQACAAQAAAD9//n/AQACAAQAAAD+//n/AQACAAQAAAD///n/AQACAAQAAAACAPn/AQACAAQAAAADAPn/AQACAAQAAAAEAPn/AQACAAQAAAAFAPn/AQACAAQAAAD7//v/AAAAAAAAAAD+/wIABQAAAAAAAAA=")
 tile_set = SubResource("TileSet_8xurw")
 
+[node name="Soil2" parent="." instance=ExtResource("17_qi2g6")]
+position = Vector2(-18, 175)
+
+[node name="Soil" parent="." instance=ExtResource("17_qi2g6")]
+position = Vector2(-71, 80)
+
 [node name="GameTiles" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD///7/AAAAAAAAAQAAAP7/AAAAAAAAAQD+//7/BAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD///7/AAAAAAAAAQAAAP7/AAAAAAAAAQD+//7/BAAAAAAAAQD+/wEABAAAAAAAAQA=")
 tile_set = SubResource("TileSet_tdrsy")
 
 [node name="Door" type="TileMapLayer" parent="."]
@@ -350,9 +357,6 @@ disabled = true
 [node name="teleport_a" type="Marker2D" parent="."]
 position = Vector2(89, -83)
 
-[node name="Soil" parent="." instance=ExtResource("17_qi2g6")]
-position = Vector2(-71, 80)
-
 [node name="Player" parent="." instance=ExtResource("11_f11wv")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -360,5 +364,8 @@ position = Vector2(-71, 80)
 [node name="DialogBox" parent="CanvasLayer" instance=ExtResource("12_y6p6t")]
 offset_left = 1.0
 offset_right = 1.0
+
+[node name="FishMonster" parent="." instance=ExtResource("18_7gm0b")]
+position = Vector2(84, 95)
 
 [connection signal="body_entered" from="Teleport/Area2D" to="Teleport" method="_on_area_2d_body_entered"]
