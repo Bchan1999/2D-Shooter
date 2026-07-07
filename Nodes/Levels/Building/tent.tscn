@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5p8m6ivkmvkn"]
+
+[ext_resource type="Texture2D" uid="uid://m78vju1hblq2" path="res://Assets/Brandon_Assets/tent.png" id="1_07b8w"]
+[ext_resource type="PackedScene" uid="uid://bqquf3tq1b70s" path="res://Nodes/Levels/door.tscn" id="2_xu7xt"]
+
+[node name="Tent" type="Sprite2D"]
+texture = ExtResource("1_07b8w")
+
+[node name="Door" parent="." instance=ExtResource("2_xu7xt")]
+position = Vector2(0, 13)

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+
 @onready var progress_bar: ProgressBar = $ProgressBar
 @export var anim : AnimationPlayer
 @onready var MAX_HEALTH = 10
@@ -7,7 +8,7 @@ extends CharacterBody2D
 @export var dmg = 1
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-enum fish_state {IDLE, HURT, DEATH, CHASE, SPAWN, ATTACK}
+enum plant_state {IDLE, HURT, DEATH, CHASE, SPAWN, ATTACK}
 
 var health
 var damage = 2
@@ -20,8 +21,8 @@ var history = []
 func _ready() -> void:
 	set_health()
 	history = []
-	history.append(fish_state.IDLE)
-	current_state = fish_state.IDLE
+	history.append(plant_state.IDLE)
+	current_state = plant_state.IDLE
 	$Idle.Enter()
 	state_node = $Idle
 	#assert(player, "Slime Enemy: Player path is invalid/Player cannot be found")
@@ -61,28 +62,28 @@ func change_state(new_state):
 	
 	state_node.Exit()
 
-	if current_state == fish_state.IDLE:
+	if current_state == plant_state.IDLE:
 		history = []
 		history.append(current_state)
 		$Idle.Enter()
 		state_node = $Idle
-	elif current_state == fish_state.HURT:
-		history.append(current_state)
-		$Hurt.Enter()
-		state_node = $Hurt
-	elif current_state == fish_state.DEATH:
-		$Death.Enter()
-		state_node = $Death
-	elif current_state == fish_state.CHASE:
-		history = []
-		history.append(current_state)
-		$Chase.Enter()
-		state_node = $Chase
-	elif current_state == fish_state.ATTACK:
-		history = []
-		history.append(current_state)
-		$Attack.Enter()
-		state_node = $Attack
+	#elif current_state == fish_state.HURT:
+		#history.append(current_state)
+		#$Hurt.Enter()
+		#state_node = $Hurt
+	#elif current_state == fish_state.DEATH:
+		#$Death.Enter()
+		#state_node = $Death
+	#elif current_state == fish_state.CHASE:
+		#history = []
+		#history.append(current_state)
+		#$Chase.Enter()
+		#state_node = $Chase
+	#elif current_state == fish_state.ATTACK:
+		#history = []
+		#history.append(current_state)
+		#$Attack.Enter()
+		#state_node = $Attack
 	#elif current_state == Global.enemy.SPAWN:
 		#$Spawn.Enter()
 		#state_node = $Spawn
@@ -93,17 +94,17 @@ func take_damage(dmg):
 	update_health_bar()
 	if health == 0:
 		Global.enemy_kill.emit()
-		change_state(fish_state.DEATH)
+		change_state(plant_state.DEATH)
 		
 #
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("give_dmg"):
 		print(current_state)
 		if area.has_method("get_dmg"):
-			if current_state == fish_state.DEATH || current_state == fish_state.SPAWN:
+			if current_state == plant_state.DEATH || current_state == plant_state.SPAWN:
 				return
 			else:
-				change_state(fish_state.HURT)
+				#change_state(plant_state.HURT)
 				take_damage(area.get_dmg())
 				
 		assert(area.has_method("get_dmg"), "Bullet needs a get_dmg() method")
@@ -111,10 +112,10 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func get_player_chase() -> Vector2:
 	return player.global_position
 		
-func _on_detect_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		player = body
-		change_state(fish_state.CHASE)
+#func _on_detect_body_entered(body: Node2D) -> void:
+	#if body.is_in_group("player"):
+		#player = body
+		#change_state(plant_state.CHASE)
 		
 func previous_state_change():
 	history.pop_back()

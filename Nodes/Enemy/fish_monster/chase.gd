@@ -17,11 +17,10 @@ func Update(_delta: float):
 
 func Physics_Update(_delta: float):
 	var target = enemy.get_player_chase()
-	print(enemy.global_position.distance_to(target))
 	if enemy.global_position.distance_to(target) > enemy.attack_range:
 		enemy.velocity = enemy.global_position.direction_to(target) * move_speed
 		enemy.move_and_slide()
 	else:
 		enemy.velocity = Vector2.ZERO
 		enemy.move_and_slide()
-		enemy.change_state(Global.enemy.ATTACK)
+		enemy.change_state(enemy.fish_state.ATTACK)

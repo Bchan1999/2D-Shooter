@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dn3mdd5tcuswt"]
 
-[ext_resource type="Script" uid="uid://e8hvpx5uj5hi" path="res://Scenes/diamond.gd" id="1_04a0d"]
+[ext_resource type="Script" uid="uid://e8hvpx5uj5hi" path="res://Nodes/Objects/diamond.gd" id="1_04a0d"]
 [ext_resource type="Texture2D" uid="uid://mqp1nkwc78jr" path="res://Assets/Brandon_Assets/Diamond/Diamond_Shadow.png" id="1_tjcex"]
 [ext_resource type="Texture2D" uid="uid://cxyeonnjp3dmu" path="res://Assets/Brandon_Assets/Diamond/Diamond.png" id="2_04a0d"]
 

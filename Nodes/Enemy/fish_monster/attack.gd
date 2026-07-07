@@ -22,7 +22,7 @@ func Physics_Update(delta: float):
 
 	# if player walked out of range, go back to chasing
 	if not enemy.player_in_attack_range():
-		enemy.change_state(Global.enemy.CHASE)
+		enemy.change_state(enemy.fish_state.CHASE)
 		return
 
 	_timer -= delta

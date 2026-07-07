@@ -25,7 +25,7 @@ func _ready() -> void:
 	regenerate_walls()
 	cached_bounds = get_tile_bounds()
 
-	tile_ui = preload("res://UI/tile_ui.tscn").instantiate()
+	tile_ui = preload("res://Nodes/UI/tile_ui.tscn").instantiate()
 	add_child(tile_ui)
 	tile_ui.visible = false
 	tile_ui.card_selected.connect(_on_card_selected)

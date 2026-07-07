@@ -1,0 +1,71 @@
+[gd_scene load_steps=14 format=3 uid="uid://c0qh7xrnmo2r8"]
+
+[ext_resource type="Script" uid="uid://b37y4q3upfc3a" path="res://Nodes/Levels/hub.gd" id="1_3du0j"]
+[ext_resource type="PackedScene" uid="uid://i7k64gyfrx75" path="res://plant_monster.tscn" id="3_ss1xf"]
+[ext_resource type="PackedScene" uid="uid://uf8x4guwbq85" path="res://Nodes/NPC/FarmMan/farm_man.tscn" id="8_72fsv"]
+[ext_resource type="Texture2D" uid="uid://f4ct3yc3oob3" path="res://Assets/Brandon_Assets/grasslands.png" id="8_sg6h5"]
+[ext_resource type="PackedScene" uid="uid://jk6ik058ipb1" path="res://Nodes/Levels/teleport.tscn" id="9_qi2g6"]
+[ext_resource type="PackedScene" uid="uid://bsh8a52de1j5" path="res://test_arena.tscn" id="10_vkujn"]
+[ext_resource type="PackedScene" uid="uid://htiic3ienanb" path="res://Nodes/Player/player.tscn" id="11_f11wv"]
+[ext_resource type="PackedScene" uid="uid://sglftb3q56qc" path="res://Nodes/UI/dialog_box.tscn" id="12_y6p6t"]
+[ext_resource type="PackedScene" uid="uid://c5p8m6ivkmvkn" path="res://Nodes/Levels/Building/tent.tscn" id="15_jlf1b"]
+[ext_resource type="PackedScene" uid="uid://dychxk3eqxvry" path="res://Nodes/Plants_Soil/soil.tscn" id="17_qi2g6"]
+[ext_resource type="PackedScene" uid="uid://dfbc4xym4upx0" path="res://Nodes/Enemy/fish_monster/fish_monster.tscn" id="18_7gm0b"]
+[ext_resource type="PackedScene" uid="uid://dn3mdd5tcuswt" path="res://Nodes/Objects/diamond.tscn" id="20_td883"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trs84"]
+radius = 12.0
+
+[node name="HUB" type="Node2D"]
+script = ExtResource("1_3du0j")
+
+[node name="Grasslands" type="Sprite2D" parent="."]
+position = Vector2(-5, 44)
+texture = ExtResource("8_sg6h5")
+
+[node name="PlantMonster" parent="Grasslands" instance=ExtResource("3_ss1xf")]
+
+[node name="Soil2" parent="." instance=ExtResource("17_qi2g6")]
+position = Vector2(-11, 96)
+
+[node name="Soil" parent="." instance=ExtResource("17_qi2g6")]
+position = Vector2(-112, 89)
+
+[node name="farm_man" parent="." instance=ExtResource("8_72fsv")]
+position = Vector2(-35, -54)
+
+[node name="Teleport" parent="." instance=ExtResource("9_qi2g6")]
+position = Vector2(58, 8)
+target_scene = ExtResource("10_vkujn")
+
+[node name="Area2D" type="Area2D" parent="Teleport"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport/Area2D"]
+shape = SubResource("CircleShape2D_trs84")
+disabled = true
+
+[node name="teleport_a" type="Marker2D" parent="."]
+position = Vector2(89, -83)
+
+[node name="Player" parent="." instance=ExtResource("11_f11wv")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogBox" parent="CanvasLayer" instance=ExtResource("12_y6p6t")]
+offset_left = 1.0
+offset_right = 1.0
+
+[node name="FishMonster" parent="." instance=ExtResource("18_7gm0b")]
+position = Vector2(-28, 97)
+
+[node name="Diamond2" parent="." instance=ExtResource("20_td883")]
+position = Vector2(-153, 21)
+
+[node name="Diamond" parent="." instance=ExtResource("20_td883")]
+position = Vector2(-127, 36)
+
+[node name="Tent" parent="." instance=ExtResource("15_jlf1b")]
+position = Vector2(58, -7)
+
+[connection signal="body_entered" from="Teleport/Area2D" to="Teleport" method="_on_area_2d_body_entered"]

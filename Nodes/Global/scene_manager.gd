@@ -1,7 +1,7 @@
 extends Node2D
 
-var hub : PackedScene = preload("res://Scenes/hub.tscn")
-var floor_one : PackedScene =  preload("res://Scenes/floor_one.tscn")
+var hub : PackedScene = preload("res://Nodes/Levels/hub.tscn")
+var floor_one : PackedScene =  preload("res://Nodes/Levels/floor_one.tscn")
 var dict : Dictionary
 @onready var player: CharacterBody2D = $Player
 

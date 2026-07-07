@@ -16,21 +16,21 @@ signal freeze_game(is_frozen: bool)
 
 @onready var scene_state = scene.HUB
 
-var is_game_frozen: bool = false :
+var _is_game_frozen: bool = false :
 	set(value):
-		if is_game_frozen == value:
+		if _is_game_frozen == value:
 			return
-		is_game_frozen = value
-		freeze_game.emit(is_game_frozen)   # auto-emit when changed
+		_is_game_frozen = value
+		freeze_game.emit(_is_game_frozen)   # auto-emit when changed
 		# Optional: also sync Godot's built-in pause
 		# get_tree().paused = is_game_frozen
 
 # Optional helper methods (very convenient)
-func freeze() -> void:
-	is_game_frozen = true
+func _freeze() -> void:
+	_is_game_frozen = true
 
-func unfreeze() -> void:
-	is_game_frozen = false
+func _unfreeze() -> void:
+	_is_game_frozen = false
 
 func toggle_freeze() -> void:
-	is_game_frozen = !is_game_frozen
+	_is_game_frozen = !_is_game_frozen

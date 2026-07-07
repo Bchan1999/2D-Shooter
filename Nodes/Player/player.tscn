@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://htiic3ienanb"]
+[gd_scene load_steps=87 format=3 uid="uid://htiic3ienanb"]
 
 [ext_resource type="Script" uid="uid://ctc1ryb4dp22r" path="res://Nodes/Player/player.gd" id="1_2axcs"]
 [ext_resource type="PackedScene" uid="uid://cc088hdtd3fv0" path="res://Nodes/Player/bullet.tscn" id="2_eqnj8"]
@@ -17,11 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://b623d0gnwscbr" path="res://Assets/topdown_shooter/topdown_shooter/guns/pistol/p_up.png" id="15_nymye"]
 [ext_resource type="Script" uid="uid://tj2s23300at7" path="res://Nodes/Player/pistol.gd" id="16_b1b41"]
 [ext_resource type="Texture2D" uid="uid://bvwqpc5wieufw" path="res://Assets/Brandon_Assets/Diamond/Diamond_Thumb.png" id="17_a5rbp"]
-[ext_resource type="Texture2D" uid="uid://clq8lfbuy85kh" path="res://Assets/Brandon_Assets/New_UI/gun.png" id="18_mrjgt"]
-[ext_resource type="Texture2D" uid="uid://q5auhm74jkh4" path="res://Assets/Brandon_Assets/New_UI/frame.png" id="18_ncvkw"]
 [ext_resource type="Script" uid="uid://cqfr5wnrjn28" path="res://Nodes/camera_2d.gd" id="18_q8pq0"]
-[ext_resource type="Texture2D" uid="uid://damtj7wxp8e0f" path="res://Assets/Brandon_Assets/New_UI/inventory_box.png" id="19_08mni"]
 [ext_resource type="AudioStream" uid="uid://cif8xa8xtpw16" path="res://Sounds/gunshot.wav" id="19_dd1vh"]
+[ext_resource type="PackedScene" uid="uid://j72ggkmn8h0l" path="res://Nodes/UI/control.tscn" id="21_08mni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
 atlas = ExtResource("3_p3rpl")
@@ -1995,6 +1993,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("anim_body", "anim_gun", "aim") groups=["player"]]
+collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_2axcs")
 anim_body = NodePath("anim_body")
@@ -2072,20 +2071,10 @@ texture = ExtResource("17_a5rbp")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 
-[node name="Frame" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(240, 135)
-texture = ExtResource("18_ncvkw")
-
-[node name="InventoryBox" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(176, 241)
-texture = ExtResource("19_08mni")
-
-[node name="Gun2" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(176, 241)
-texture = ExtResource("18_mrjgt")
+[node name="Control" parent="CanvasLayer" instance=ExtResource("21_08mni")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.655, 0.655)
+zoom = Vector2(1.075, 1.075)
 script = ExtResource("18_q8pq0")
 
 [node name="Gunshot" type="AudioStreamPlayer2D" parent="."]
