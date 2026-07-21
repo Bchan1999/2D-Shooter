@@ -2071,7 +2071,7 @@ texture = ExtResource("17_a5rbp")
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 
-[node name="Control" parent="CanvasLayer" instance=ExtResource("21_08mni")]
+[node name="Player_Equip_Inv" parent="CanvasLayer" instance=ExtResource("21_08mni")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.075, 1.075)

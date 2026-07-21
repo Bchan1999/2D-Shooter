@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bqq4orujb3n40"]
+
+[ext_resource type="Texture2D" uid="uid://bf7yiiioc6lnk" path="res://Assets/Brandon_Assets/New_UI/hoe-export.png" id="1_1mchy"]
+[ext_resource type="Script" uid="uid://bs3aifhxj1oiw" path="res://item_data.gd" id="1_krn11"]
+
+[resource]
+script = ExtResource("1_krn11")
+name = "Hoe"
+icon = ExtResource("1_1mchy")
+metadata/_custom_type_script = "uid://bs3aifhxj1oiw"

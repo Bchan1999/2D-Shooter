@@ -1,7 +1,19 @@
-[gd_scene load_steps=20 format=3 uid="uid://bmkyd4e3pm0gw"]
+[gd_scene load_steps=24 format=3 uid="uid://bmkyd4e3pm0gw"]
 
 [ext_resource type="Texture2D" uid="uid://wck3ulleg2wn" path="res://Assets/Brandon_Assets/PlantGround/Planty_Evolution.png" id="1_0j62n"]
 [ext_resource type="Script" uid="uid://qc0xyx6fe2hs" path="res://Nodes/Plants_Soil/plant.gd" id="1_374as"]
+[ext_resource type="PackedScene" uid="uid://i7k64gyfrx75" path="res://plant_monster.tscn" id="2_elbls"]
+[ext_resource type="Texture2D" uid="uid://b0unfkbs7xso7" path="res://Assets/Brandon_Assets/PlantGround/tilled_soil.png" id="3_w31qu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxdtu"]
+texture = ExtResource("3_w31qu")
+margins = Vector2i(3, 2)
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5sqlh"]
+tile_size = Vector2i(20, 20)
+sources/1 = SubResource("TileSetAtlasSource_hxdtu")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71rl0"]
 atlas = ExtResource("1_0j62n")
@@ -275,6 +287,12 @@ height = 20.0
 
 [node name="Plant" type="StaticBody2D" groups=["player"]]
 script = ExtResource("1_374as")
+plant_monster_scene = ExtResource("2_elbls")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-10, -11)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_5sqlh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)

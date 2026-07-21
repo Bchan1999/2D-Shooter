@@ -1,6 +1,7 @@
 extends Node2D
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var MAX_HEALTH = 10
+@export var plant_monster_scene : PackedScene
 var health
 var stages := ["no_seed", "seed", "baby", "teen", "adult"]
 var current := 0
@@ -26,10 +27,15 @@ func _play_all_stages() -> void:
 	anim.play(stages[current])
 
 	# adult is final — let it loop/hold forever
+	if (stages[current] == "adult"):
+		spawnEnemy()
+		self.queue_free()
+		
 	if current >= stages.size() - 1:
 		return
 
 	await get_tree().create_timer(interval).timeout
+	
 	current += 1
 	_play_all_stages()
 	
@@ -38,3 +44,8 @@ func take_damage(dmg):
 	health = clamp(health, 0, MAX_HEALTH)
 	update_health_bar()
 	pass
+	
+func spawnEnemy():
+	var plant_monster = plant_monster_scene.instantiate()
+	plant_monster.global_position = self.global_position
+	get_tree().current_scene.add_child(plant_monster)
