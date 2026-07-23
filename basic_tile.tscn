@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://4dm3hwyx5tsn"]
 
-[ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/Ground_Tiles/tile_test.png" id="1_80ys6"]
+[ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/deprecated_grount_tiles/tile_test.png" id="1_80ys6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ckjdp"]
 texture = ExtResource("1_80ys6")

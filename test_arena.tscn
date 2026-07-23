@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bsh8a52de1j5"]
 
 [ext_resource type="Script" uid="uid://dclkmrutlsdng" path="res://test_arena.gd" id="1_s6hhk"]
-[ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/Ground_Tiles/tile_test.png" id="2_ygfu8"]
+[ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/deprecated_grount_tiles/tile_test.png" id="2_ygfu8"]
 [ext_resource type="PackedScene" uid="uid://4dm3hwyx5tsn" path="res://basic_tile.tscn" id="3_pt0wf"]
 [ext_resource type="PackedScene" uid="uid://bbp15b8tgminm" path="res://start_tile.tscn" id="4_xw7hd"]
 [ext_resource type="PackedScene" uid="uid://ca1cw7cdyyho6" path="res://enemy_spawner.tscn" id="4_ygfu8"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnupysa8fgkmh"
-path="res://.godot/imported/l02_sprite_1.png-c07df63d19e7e17de8fec9d9bfa1ee88.ctex"
+uid="uid://clq8lfbuy85kh"
+path="res://.godot/imported/gun.png-0186d1b8e903a99d99b0341a132ca37f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Brandon_Assets/UI_And_Tiles/l02_sprite_1.png"
-dest_files=["res://.godot/imported/l02_sprite_1.png-c07df63d19e7e17de8fec9d9bfa1ee88.ctex"]
+source_file="res://Assets/Brandon_Assets/UI_Components/gun.png"
+dest_files=["res://.godot/imported/gun.png-0186d1b8e903a99d99b0341a132ca37f.ctex"]
 
 [params]
 

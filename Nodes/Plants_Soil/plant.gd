@@ -27,9 +27,9 @@ func _play_all_stages() -> void:
 	anim.play(stages[current])
 
 	# adult is final — let it loop/hold forever
-	if (stages[current] == "adult"):
-		spawnEnemy()
-		self.queue_free()
+	#if (stages[current] == "adult"):
+		#spawnEnemy()
+		#self.queue_free()
 		
 	if current >= stages.size() - 1:
 		return

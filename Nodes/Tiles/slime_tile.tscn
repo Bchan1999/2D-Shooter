@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://jt0mmrhpr0ly"]
 
-[ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/Ground_Tiles/tile_test.png" id="1_1qurw"]
+[ext_resource type="Texture2D" uid="uid://flr3pppnyb6k" path="res://Assets/Brandon_Assets/deprecated_grount_tiles/tile_test.png" id="1_1qurw"]
 [ext_resource type="Script" uid="uid://d02erggpr1a6a" path="res://Nodes/Tiles/slime_tile.gd" id="1_sxiwx"]
 [ext_resource type="PackedScene" uid="uid://ho0hemylrta3" path="res://Nodes/Enemy/SlimeEnemy/slime_enemy.tscn" id="2_5djja"]
 [ext_resource type="PackedScene" uid="uid://ca1cw7cdyyho6" path="res://enemy_spawner.tscn" id="2_edusn"]

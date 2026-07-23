@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g3dhiw5xnqjm"
-path="res://.godot/imported/l00_sprite_1.png-e8af7d19389350c7ac8a5ea7fd516784.ctex"
+uid="uid://dfx38l2ecovli"
+path="res://.godot/imported/TileUI.png-a0ffd65bbd0ec763fc5aedb7d6c92677.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Brandon_Assets/UI_And_Tiles/l00_sprite_1.png"
-dest_files=["res://.godot/imported/l00_sprite_1.png-e8af7d19389350c7ac8a5ea7fd516784.ctex"]
+source_file="res://Assets/Brandon_Assets/deprecated_UI/TileUI.png"
+dest_files=["res://.godot/imported/TileUI.png-a0ffd65bbd0ec763fc5aedb7d6c92677.ctex"]
 
 [params]
 

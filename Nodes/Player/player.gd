@@ -1,18 +1,27 @@
 extends CharacterBody2D
 
-@export var move_speed := 100
-@export var acceleration := 500
-@export var deceleration := 500
-@export var anim_body : AnimationPlayer   # character sprite
-@export var anim_gun : AnimationPlayer    # pistol only
-@export var aim : Marker2D
-@export var bullet_scene : PackedScene
 @onready var gunshot: AudioStreamPlayer2D = $Gunshot
 @onready var camera: Camera2D = $Camera2D
 @onready var label: Label = $CanvasLayer/Label
 @onready var diamond_amt_label: Label = $CanvasLayer/Diamond_Amt
+
+@export_category("Player Stats")
+@export var move_speed := 100
+@export var acceleration := 500
+@export var deceleration := 500
 @export var MAX_HEALTH = 10
 @export var START_DIAMOND = 0
+
+@export_category("In Scene")
+@export var anim_body : AnimationPlayer   # character sprite
+@export var anim_gun : AnimationPlayer    # pistol only
+@export var aim : Marker2D
+@export var heldSprite: Sprite2D 
+@export var player_equip_inv : Control
+
+@export_category("Out Scene")
+@export var bullet_scene : PackedScene
+@export var tilemap : TileMapLayer
 
 var health
 var diamond_amt
@@ -22,19 +31,74 @@ var move = false
 var is_shooting := false
 var current_aim_anim := ""
 
+
+var last_cell: Vector2i
+var has_highlight := false
+
 func _ready() -> void:
 	health = MAX_HEALTH
 	diamond_amt = START_DIAMOND
 	Global.freeze_game.connect(stop_movement)
+	
+	#Debug Warnings
+	if (!tilemap):
+		push_warning("No TileMap detected")
+	
 
 func stop_movement(is_frozen: bool):
 	move = is_frozen
+	
+
+func _process(_delta: float) -> void:
+	var item : ItemData = player_equip_inv.get_current_box()
+	if (item != null):
+		if (item.name == "Hoe"):
+			heldSprite.texture = item.player_img
+			heldSprite.visible = true
+		else:
+			heldSprite.visible = false
+			clear_highlight()
+			return
+	else:
+		heldSprite.visible = false
+		clear_highlight()
+		return
+		
+
+	var player_cell: Vector2i = tilemap.local_to_map(tilemap.to_local(global_position))
+	var dir: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	var step := Vector2i(round(dir.x), round(dir.y))  # 8-directional
+	var target := player_cell + step
+
+	if has_highlight and target == last_cell:
+		return
+
+	clear_highlight()
+	tilemap.set_cell(target, 0, Vector2i(0, 0))
+	last_cell = target
+	has_highlight = true
+
+func clear_highlight() -> void:
+	if has_highlight:
+		tilemap.erase_cell(last_cell)
+		has_highlight = false
 
 func _physics_process(delta: float) -> void:
 	label.text = str("Health: ", health)
 	diamond_amt_label.text = str(diamond_amt, " :")
 
 	var dir = Input.get_vector("left", "right", "up", "down")
+	print(player_equip_inv.get_current_box())
+	var item : ItemData = player_equip_inv.get_current_box()
+	if (item != null):
+		if (item.name == "Hoe"):
+			heldSprite.texture = item.player_img
+			heldSprite.visible = true
+		else:
+			heldSprite.visible = false
+	else:
+		heldSprite.visible = false
+		
 
 	if !move:
 		if dir != Vector2.ZERO:
@@ -63,7 +127,7 @@ func _physics_process(delta: float) -> void:
 		if not is_shooting:
 			anim_gun.play(current_aim_anim)
 
-		if Input.is_action_just_pressed("shoot"):
+		if Input.is_action_just_pressed("r_click"):
 			shoot()
 
 func get_aim_suffix() -> String:

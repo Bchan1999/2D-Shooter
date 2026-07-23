@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc5gw2nxkta7e"
-path="res://.godot/imported/inventory_box_highlight.png-39ea0acf82efea9756c74e99fa8a5494.ctex"
+uid="uid://4ce6qyq1iwlt"
+path="res://.godot/imported/l10_sprite_1.png-4f51f5779d6a438925bf7924add4a989.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Brandon_Assets/New_UI/inventory_box_highlight.png"
-dest_files=["res://.godot/imported/inventory_box_highlight.png-39ea0acf82efea9756c74e99fa8a5494.ctex"]
+source_file="res://Assets/Brandon_Assets/deprecated_UI/l10_sprite_1.png"
+dest_files=["res://.godot/imported/l10_sprite_1.png-4f51f5779d6a438925bf7924add4a989.ctex"]
 
 [params]
 

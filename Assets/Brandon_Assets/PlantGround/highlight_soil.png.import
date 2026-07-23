@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clq8lfbuy85kh"
-path="res://.godot/imported/gun.png-a94d1d5de43e112e6d056bc9d57a09db.ctex"
+uid="uid://cnljplnfgax8r"
+path="res://.godot/imported/highlight_soil.png-12ef7228298eafafd331768f246b3623.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Brandon_Assets/New_UI/gun.png"
-dest_files=["res://.godot/imported/gun.png-a94d1d5de43e112e6d056bc9d57a09db.ctex"]
+source_file="res://Assets/Brandon_Assets/PlantGround/highlight_soil.png"
+dest_files=["res://.godot/imported/highlight_soil.png-12ef7228298eafafd331768f246b3623.ctex"]
 
 [params]
 

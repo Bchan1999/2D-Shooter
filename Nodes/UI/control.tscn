@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://j72ggkmn8h0l"]
 
 [ext_resource type="Script" uid="uid://cttnwgwsis4e4" path="res://Nodes/UI/control.gd" id="1_er0wr"]
-[ext_resource type="Texture2D" uid="uid://q5auhm74jkh4" path="res://Assets/Brandon_Assets/New_UI/frame.png" id="1_nh5hm"]
+[ext_resource type="Texture2D" uid="uid://q5auhm74jkh4" path="res://Assets/Brandon_Assets/UI_Components/frame.png" id="1_nh5hm"]
 [ext_resource type="PackedScene" uid="uid://bfjtb14fo4h8l" path="res://Nodes/UI/box_inv.tscn" id="2_1nj5v"]
 
 [node name="Player_Equip_Inv" type="Control"]

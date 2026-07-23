@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do63vxdoiatlv"
-path="res://.godot/imported/l01_sprite_1.png-2fb3be001964d430267c779e2f0b6359.ctex"
+uid="uid://flr3pppnyb6k"
+path="res://.godot/imported/tile_test.png-74bba11c9909d8f442178bd6ad5eccf9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Brandon_Assets/UI_And_Tiles/l01_sprite_1.png"
-dest_files=["res://.godot/imported/l01_sprite_1.png-2fb3be001964d430267c779e2f0b6359.ctex"]
+source_file="res://Assets/Brandon_Assets/deprecated_grount_tiles/tile_test.png"
+dest_files=["res://.godot/imported/tile_test.png-74bba11c9909d8f442178bd6ad5eccf9.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cttnwgwsis4e4" path="res://Nodes/UI/control.gd" id="1_s565u"]
 [ext_resource type="PackedScene" uid="uid://bfjtb14fo4h8l" path="res://Nodes/UI/box_inv.tscn" id="2_hdpt5"]
-[ext_resource type="Texture2D" uid="uid://q5auhm74jkh4" path="res://Assets/Brandon_Assets/New_UI/frame.png" id="3_xvpc3"]
+[ext_resource type="Texture2D" uid="uid://q5auhm74jkh4" path="res://Assets/Brandon_Assets/UI_Components/frame.png" id="3_xvpc3"]
 
 [node name="Player_Equip_Inv" type="Control"]
 layout_mode = 3

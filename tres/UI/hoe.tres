@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bqq4orujb3n40"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bqq4orujb3n40"]
 
-[ext_resource type="Texture2D" uid="uid://bf7yiiioc6lnk" path="res://Assets/Brandon_Assets/New_UI/hoe-export.png" id="1_1mchy"]
-[ext_resource type="Script" uid="uid://bs3aifhxj1oiw" path="res://item_data.gd" id="1_krn11"]
+[ext_resource type="Script" uid="uid://bs3aifhxj1oiw" path="res://tres/UI/item_data.gd" id="1_krn11"]
+[ext_resource type="Texture2D" uid="uid://bf7yiiioc6lnk" path="res://Assets/Brandon_Assets/UI_Components/hoe-export.png" id="1_x5a24"]
+[ext_resource type="Texture2D" uid="uid://xbrxyt4g4mhx" path="res://Assets/Brandon_Assets/Characters/Player/hoepng.png" id="2_vmxrq"]
 
 [resource]
 script = ExtResource("1_krn11")
 name = "Hoe"
-icon = ExtResource("1_1mchy")
+icon = ExtResource("1_x5a24")
+player_img = ExtResource("2_vmxrq")
 metadata/_custom_type_script = "uid://bs3aifhxj1oiw"

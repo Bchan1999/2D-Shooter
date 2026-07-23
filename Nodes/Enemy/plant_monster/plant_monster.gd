@@ -88,8 +88,8 @@ func change_state(new_state):
 		#$Spawn.Enter()
 		#state_node = $Spawn
 
-func take_damage(dmg):
-	health = health - dmg
+func take_damage(damage):
+	health = health - damage
 	health = clamp(health, 0, MAX_HEALTH)
 	update_health_bar()
 	if health == 0:

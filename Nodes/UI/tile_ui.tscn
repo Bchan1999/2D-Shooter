@@ -1,14 +1,14 @@
 [gd_scene load_steps=20 format=4 uid="uid://cu5burmjo48jq"]
 
 [ext_resource type="Script" uid="uid://ctcrnxfkagw76" path="res://tile_ui.gd" id="1_as8ae"]
-[ext_resource type="Texture2D" uid="uid://g3dhiw5xnqjm" path="res://Assets/Brandon_Assets/UI_And_Tiles/l00_sprite_1.png" id="2_yeym4"]
-[ext_resource type="Texture2D" uid="uid://do63vxdoiatlv" path="res://Assets/Brandon_Assets/UI_And_Tiles/l01_sprite_1.png" id="3_u5eqj"]
-[ext_resource type="Texture2D" uid="uid://cnupysa8fgkmh" path="res://Assets/Brandon_Assets/UI_And_Tiles/l02_sprite_1.png" id="4_ip5th"]
-[ext_resource type="Texture2D" uid="uid://bcajdk5e7sm0e" path="res://Assets/Brandon_Assets/UI_And_Tiles/l08_sprite_1.png" id="5_w7d1j"]
-[ext_resource type="Texture2D" uid="uid://bn201j8x8qhdv" path="res://Assets/Brandon_Assets/UI_And_Tiles/l09_sprite_1.png" id="6_y6ugx"]
-[ext_resource type="Texture2D" uid="uid://4ce6qyq1iwlt" path="res://Assets/Brandon_Assets/UI_And_Tiles/l10_sprite_1.png" id="7_w4kpk"]
-[ext_resource type="Texture2D" uid="uid://7ke601ounbvu" path="res://Assets/Brandon_Assets/UI_And_Tiles/l11_sprite_1.png" id="8_d4e8y"]
-[ext_resource type="Texture2D" uid="uid://dfx38l2ecovli" path="res://Assets/Brandon_Assets/UI_And_Tiles/TileUI.png" id="9_w7d1j"]
+[ext_resource type="Texture2D" uid="uid://g3dhiw5xnqjm" path="res://Assets/Brandon_Assets/deprecated_UI/l00_sprite_1.png" id="2_yeym4"]
+[ext_resource type="Texture2D" uid="uid://do63vxdoiatlv" path="res://Assets/Brandon_Assets/deprecated_UI/l01_sprite_1.png" id="3_u5eqj"]
+[ext_resource type="Texture2D" uid="uid://cnupysa8fgkmh" path="res://Assets/Brandon_Assets/deprecated_UI/l02_sprite_1.png" id="4_ip5th"]
+[ext_resource type="Texture2D" uid="uid://bcajdk5e7sm0e" path="res://Assets/Brandon_Assets/deprecated_UI/l08_sprite_1.png" id="5_w7d1j"]
+[ext_resource type="Texture2D" uid="uid://bn201j8x8qhdv" path="res://Assets/Brandon_Assets/deprecated_UI/l09_sprite_1.png" id="6_y6ugx"]
+[ext_resource type="Texture2D" uid="uid://4ce6qyq1iwlt" path="res://Assets/Brandon_Assets/deprecated_UI/l10_sprite_1.png" id="7_w4kpk"]
+[ext_resource type="Texture2D" uid="uid://7ke601ounbvu" path="res://Assets/Brandon_Assets/deprecated_UI/l11_sprite_1.png" id="8_d4e8y"]
+[ext_resource type="Texture2D" uid="uid://dfx38l2ecovli" path="res://Assets/Brandon_Assets/deprecated_UI/TileUI.png" id="9_w7d1j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5w1d"]
 size = Vector2(10, 10)

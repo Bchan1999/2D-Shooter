@@ -1,60 +1,46 @@
-[gd_scene load_steps=24 format=3 uid="uid://bmkyd4e3pm0gw"]
+[gd_scene load_steps=21 format=3 uid="uid://bmkyd4e3pm0gw"]
 
-[ext_resource type="Texture2D" uid="uid://wck3ulleg2wn" path="res://Assets/Brandon_Assets/PlantGround/Planty_Evolution.png" id="1_0j62n"]
 [ext_resource type="Script" uid="uid://qc0xyx6fe2hs" path="res://Nodes/Plants_Soil/plant.gd" id="1_374as"]
 [ext_resource type="PackedScene" uid="uid://i7k64gyfrx75" path="res://plant_monster.tscn" id="2_elbls"]
-[ext_resource type="Texture2D" uid="uid://b0unfkbs7xso7" path="res://Assets/Brandon_Assets/PlantGround/tilled_soil.png" id="3_w31qu"]
+[ext_resource type="Texture2D" uid="uid://bf3vvpn5d52sf" path="res://Assets/Brandon_Assets/PlantGround/plant.png" id="3_elbls"]
+[ext_resource type="PackedScene" uid="uid://dychxk3eqxvry" path="res://Nodes/Plants_Soil/soil.tscn" id="3_w31qu"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hxdtu"]
-texture = ExtResource("3_w31qu")
-margins = Vector2i(3, 2)
-texture_region_size = Vector2i(20, 20)
-0:0/0 = 0
+[sub_resource type="AtlasTexture" id="AtlasTexture_w31qu"]
+atlas = ExtResource("3_elbls")
+region = Rect2(130, 0, 26, 47)
 
-[sub_resource type="TileSet" id="TileSet_5sqlh"]
-tile_size = Vector2i(20, 20)
-sources/1 = SubResource("TileSetAtlasSource_hxdtu")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxdtu"]
+atlas = ExtResource("3_elbls")
+region = Rect2(156, 0, 26, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_71rl0"]
-atlas = ExtResource("1_0j62n")
-region = Rect2(0, 68, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sqlh"]
+atlas = ExtResource("3_elbls")
+region = Rect2(26, 0, 26, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4rfw"]
-atlas = ExtResource("1_0j62n")
-region = Rect2(34, 68, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcgko"]
+atlas = ExtResource("3_elbls")
+region = Rect2(52, 0, 26, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5rbqa"]
-atlas = ExtResource("1_0j62n")
-region = Rect2(68, 0, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqm1f"]
+atlas = ExtResource("3_elbls")
+region = Rect2(0, 0, 26, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jvswq"]
-atlas = ExtResource("1_0j62n")
-region = Rect2(0, 34, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dku53"]
+atlas = ExtResource("3_elbls")
+region = Rect2(78, 0, 26, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ih5rm"]
-atlas = ExtResource("1_0j62n")
-region = Rect2(0, 0, 34, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_31jbi"]
-atlas = ExtResource("1_0j62n")
-region = Rect2(34, 0, 34, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ktprs"]
-atlas = ExtResource("1_0j62n")
-region = Rect2(34, 34, 34, 34)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_52kt5"]
-atlas = ExtResource("1_0j62n")
-region = Rect2(68, 34, 34, 34)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpy2s"]
+atlas = ExtResource("3_elbls")
+region = Rect2(104, 0, 26, 47)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1lvjb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_71rl0")
+"texture": SubResource("AtlasTexture_w31qu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d4rfw")
+"texture": SubResource("AtlasTexture_hxdtu")
 }],
 "loop": true,
 "name": &"adult",
@@ -62,26 +48,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5rbqa")
+"texture": SubResource("AtlasTexture_5sqlh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jvswq")
+"texture": SubResource("AtlasTexture_gcgko")
 }],
 "loop": true,
 "name": &"baby",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ih5rm")
-}],
+"frames": [],
 "loop": true,
 "name": &"empty",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_31jbi")
+"texture": SubResource("AtlasTexture_fqm1f")
 }],
 "loop": true,
 "name": &"seed",
@@ -89,10 +72,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ktprs")
+"texture": SubResource("AtlasTexture_dku53")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_52kt5")
+"texture": SubResource("AtlasTexture_kpy2s")
 }],
 "loop": true,
 "name": &"teen",
@@ -289,13 +272,11 @@ height = 20.0
 script = ExtResource("1_374as")
 plant_monster_scene = ExtResource("2_elbls")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(-10, -11)
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0)
-tile_set = SubResource("TileSet_5sqlh")
+[node name="Soil" parent="." instance=ExtResource("3_w31qu")]
+position = Vector2(0, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -7)
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_1lvjb")
 animation = &"empty"
 autoplay = "seed"

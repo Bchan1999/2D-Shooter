@@ -1,4 +1,5 @@
 extends Control
+
 @onready var box_spawn: Marker2D = $Box_spawn
 
 @export var box_scene : PackedScene
@@ -44,3 +45,5 @@ func change_selection(dir: int) -> void:
 	current_index = wrapi(current_index + dir, 0, list_of_boxes.size())
 	list_of_boxes[current_index].highlight_box()
 	
+func get_current_box() -> ItemData:
+	return list_of_boxes[current_index].get_item()

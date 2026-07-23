@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bf7yiiioc6lnk"
-path="res://.godot/imported/hoe-export.png-83cfab8b6b4a76caa00486a69730bb8f.ctex"
+path="res://.godot/imported/hoe-export.png-aecce45d68f99d089589dd0159593a6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Brandon_Assets/New_UI/hoe-export.png"
-dest_files=["res://.godot/imported/hoe-export.png-83cfab8b6b4a76caa00486a69730bb8f.ctex"]
+source_file="res://Assets/Brandon_Assets/UI_Components/hoe-export.png"
+dest_files=["res://.godot/imported/hoe-export.png-aecce45d68f99d089589dd0159593a6d.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bfjtb14fo4h8l"]
 
 [ext_resource type="Script" uid="uid://cjxcxojr2ot7y" path="res://Nodes/UI/1.gd" id="1_wrc5n"]
-[ext_resource type="Texture2D" uid="uid://damtj7wxp8e0f" path="res://Assets/Brandon_Assets/New_UI/inventory_box.png" id="2_sq6y8"]
-[ext_resource type="Texture2D" uid="uid://clq8lfbuy85kh" path="res://Assets/Brandon_Assets/New_UI/gun.png" id="3_5ajhn"]
-[ext_resource type="Texture2D" uid="uid://bc5gw2nxkta7e" path="res://Assets/Brandon_Assets/New_UI/inventory_box_highlight.png" id="4_0lv4v"]
+[ext_resource type="Texture2D" uid="uid://damtj7wxp8e0f" path="res://Assets/Brandon_Assets/UI_Components/inventory_box.png" id="2_sq6y8"]
+[ext_resource type="Texture2D" uid="uid://clq8lfbuy85kh" path="res://Assets/Brandon_Assets/UI_Components/gun.png" id="3_5ajhn"]
+[ext_resource type="Texture2D" uid="uid://bc5gw2nxkta7e" path="res://Assets/Brandon_Assets/UI_Components/inventory_box_highlight.png" id="4_0lv4v"]
 
 [node name="box1" type="Control"]
 layout_mode = 3

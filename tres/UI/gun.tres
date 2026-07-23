@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bajlqn5vc67xh"]
 
-[ext_resource type="Script" uid="uid://bs3aifhxj1oiw" path="res://item_data.gd" id="1_ixvuk"]
-[ext_resource type="Texture2D" uid="uid://clq8lfbuy85kh" path="res://Assets/Brandon_Assets/New_UI/gun.png" id="1_w5nfq"]
+[ext_resource type="Script" uid="uid://bs3aifhxj1oiw" path="res://tres/UI/item_data.gd" id="1_ixvuk"]
+[ext_resource type="Texture2D" uid="uid://clq8lfbuy85kh" path="res://Assets/Brandon_Assets/UI_Components/gun.png" id="1_w5nfq"]
 
 [resource]
 script = ExtResource("1_ixvuk")
