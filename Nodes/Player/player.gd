@@ -18,10 +18,13 @@ extends CharacterBody2D
 @export var aim : Marker2D
 @export var heldSprite: Sprite2D 
 @export var player_equip_inv : Control
+@onready var weapon_controller: Node2D = $WeaponController
+
 
 @export_category("Out Scene")
 @export var bullet_scene : PackedScene
 @export var tilemap : TileMapLayer
+@export var soil_layer : TileMapLayer
 
 var health
 var diamond_amt
@@ -30,6 +33,8 @@ var change_gun = false
 var move = false
 var is_shooting := false
 var current_aim_anim := ""
+var equip_gun = true
+var equip_hoe = true
 
 
 var last_cell: Vector2i
@@ -43,6 +48,9 @@ func _ready() -> void:
 	#Debug Warnings
 	if (!tilemap):
 		push_warning("No TileMap detected")
+		
+	if (!soil_layer):
+		push_warning("No TileMap detected : Soil Layer")
 	
 
 func stop_movement(is_frozen: bool):
@@ -53,18 +61,53 @@ func _process(_delta: float) -> void:
 	var item : ItemData = player_equip_inv.get_current_box()
 	if (item != null):
 		if (item.name == "Hoe"):
+			equip_gun = false
+			equip_hoe = true
+			hoe_highlight()
 			heldSprite.texture = item.player_img
 			heldSprite.visible = true
+			weapon_controller.set_visble(false)
+		elif (item.name == "Gun"):
+			equip_gun = true
+			equip_hoe = false
+			heldSprite.texture = item.player_img
+			weapon_controller.set_visble(true)
 		else:
+			equip_gun = false
+			equip_hoe = false
 			heldSprite.visible = false
 			clear_highlight()
-			return
+			weapon_controller.set_visble(false)
 	else:
+		equip_gun = false
+		equip_hoe = false
 		heldSprite.visible = false
 		clear_highlight()
-		return
 		
+	if Input.is_action_just_pressed("r_click"):
+		if (equip_gun):
+			shoot()
+		elif (equip_hoe):
+			place_soil()
+		
+func place_soil():
+	print("placed soil")
+	var player_cell: Vector2i = soil_layer.local_to_map(soil_layer.to_local(global_position))
+	var dir: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	var step := Vector2i(round(dir.x), round(dir.y))  # 8-directional
+	var target := player_cell + step
 
+	#if has_highlight and target == last_cell:
+		#return
+
+	#clear_highlight()
+	#tilemap.set_cell(target, 0, Vector2i(-1, -1), scene_id)
+	soil_layer.set_cell(target, 1, Vector2i(0, 0), 1)
+	#last_cell = target
+	#has_highlight = true
+
+	
+func hoe_highlight():
 	var player_cell: Vector2i = tilemap.local_to_map(tilemap.to_local(global_position))
 	var dir: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	var step := Vector2i(round(dir.x), round(dir.y))  # 8-directional
@@ -88,17 +131,6 @@ func _physics_process(delta: float) -> void:
 	diamond_amt_label.text = str(diamond_amt, " :")
 
 	var dir = Input.get_vector("left", "right", "up", "down")
-	print(player_equip_inv.get_current_box())
-	var item : ItemData = player_equip_inv.get_current_box()
-	if (item != null):
-		if (item.name == "Hoe"):
-			heldSprite.texture = item.player_img
-			heldSprite.visible = true
-		else:
-			heldSprite.visible = false
-	else:
-		heldSprite.visible = false
-		
 
 	if !move:
 		if dir != Vector2.ZERO:
@@ -121,14 +153,15 @@ func _physics_process(delta: float) -> void:
 			anim_body.play("Idle_With_Gun/" + suffix)
 
 		# --- anim_gun: direction idle, unless mid-shoot ---
+		#if (equip_gun):
 		var gun_idle = "Gun/" + suffix
 		if gun_idle != current_aim_anim:
 			current_aim_anim = gun_idle
 		if not is_shooting:
 			anim_gun.play(current_aim_anim)
 
-		if Input.is_action_just_pressed("r_click"):
-			shoot()
+
+			
 
 func get_aim_suffix() -> String:
 	var deg = aim.rotation_degrees

@@ -66,8 +66,9 @@ disabled = true
 [node name="teleport_a" type="Marker2D" parent="."]
 position = Vector2(89, -83)
 
-[node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("11_f11wv")]
+[node name="Player" parent="." node_paths=PackedStringArray("tilemap", "soil_layer") instance=ExtResource("11_f11wv")]
 tilemap = NodePath("../HighlightLayer")
+soil_layer = NodePath("../SoilLayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -90,7 +91,6 @@ tile_map_data = PackedByteArray(0, 0, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 25
 tile_set = SubResource("TileSet_ss1xf")
 
 [node name="HighlightLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_qewuk")
 
 [connection signal="body_entered" from="Teleport/Area2D" to="Teleport" method="_on_area_2d_body_entered"]

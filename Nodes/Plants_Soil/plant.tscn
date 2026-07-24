@@ -291,6 +291,7 @@ position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_374as")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 offset_left = -42.0
 offset_top = 16.0
 offset_right = 46.0
